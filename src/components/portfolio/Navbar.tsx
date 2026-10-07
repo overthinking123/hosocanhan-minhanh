@@ -39,10 +39,11 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
 
   const navLinks = [
     { name: 'Giới thiệu', href: '#about' },
+    { name: 'Học vấn', href: '#education' },
     { name: 'Kỹ năng', href: '#skills' },
-    { name: 'Kỹ năng CSS', href: '#css-lab' },
     { name: 'Dự án', href: '#projects' },
-    { name: 'Thành tích', href: '#experience' },
+    { name: 'Thành tích', href: '#achievements' },
+    { name: 'Mục tiêu', href: '#career-goals' },
     { name: 'Liên hệ', href: '#contact' },
   ];
 

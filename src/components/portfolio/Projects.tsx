@@ -1,21 +1,34 @@
 import React, { useState } from 'react';
 import { useCursor } from '../../context/CursorContext';
-import { ExternalLink, Github, Sparkles, Layers, Box, Terminal, Activity } from 'lucide-react';
+import { ExternalLink, Github, Sparkles, Layers, Box, Terminal, Activity, CheckCircle2, UserCheck } from 'lucide-react';
 import { ProjectItem } from '../../types';
+
+interface FullProjectItem extends ProjectItem {
+  filterCategory: '3d' | 'fullstack' | 'ai';
+  icon: React.ReactNode;
+  role: string;
+  keyFeatures: string[];
+}
 
 export const Projects: React.FC = () => {
   const { settings } = useCursor();
   const activeColor = settings.color || '#00F0FF';
   const [filter, setFilter] = useState<'all' | '3d' | 'fullstack' | 'ai'>('all');
 
-  const projects: (ProjectItem & { filterCategory: '3d' | 'fullstack' | 'ai'; icon: React.ReactNode })[] = [
+  const projects: FullProjectItem[] = [
     {
       id: 'nexus-3d',
       title: 'Nexus 3D — Không gian Trình diễn Cyberpunk WebGL Tương tác',
       category: 'Đồ họa 3D & Web Tương tác',
       filterCategory: '3d',
+      role: 'Trưởng nhóm & Kỹ sư Đồ họa Three.js',
       description:
         'Trải nghiệm web 3D hiệu năng cao được xây dựng với Three.js và custom GLSL vertex/fragment shaders. Tích hợp quỹ đạo camera động, va chạm trường hạt và tốc độ render mượt mà 60fps.',
+      keyFeatures: [
+        'Hệ thống trường hạt thời gian thực (Particles System)',
+        'Shader GLSL tùy biến cho hiệu ứng ánh sáng neon',
+        'Điều khiển góc nhìn camera tương tác mượt mà',
+      ],
       tags: ['Three.js', 'WebGL', 'React 19', 'GLSL', 'Tailwind'],
       image: '3d-nexus',
       icon: <Box className="w-4 h-4" />,
@@ -28,8 +41,14 @@ export const Projects: React.FC = () => {
       title: 'DevSphere — Không gian Lập trình Cộng tác Thời gian Thực',
       category: 'Hệ thống Full-Stack',
       filterCategory: 'fullstack',
+      role: 'Lập trình viên Full-Stack chính',
       description:
         'Trình soạn thảo mã trực tuyến hỗ trợ biến đổi vận hành thời gian thực (OT), kiểm tra cú pháp trực tiếp, terminal tích hợp và hiển thị trạng thái người dùng trong phòng qua WebSockets.',
+      keyFeatures: [
+        'Đồng bộ văn bản thời gian thực qua WebSockets',
+        'Trình soạn thảo Monaco Editor với kiểm tra cú pháp',
+        'Phòng cộng tác đa người dùng và phân quyền linh hoạt',
+      ],
       tags: ['TypeScript', 'Node.js', 'WebSockets', 'Monaco Editor', 'Docker'],
       image: 'devsphere',
       icon: <Terminal className="w-4 h-4" />,
@@ -42,8 +61,14 @@ export const Projects: React.FC = () => {
       title: 'AeroPulse — Hệ thống Giám sát Đo từ xa Đội bay Drone Tự hành',
       category: 'Giao diện IoT & Dữ liệu',
       filterCategory: 'fullstack',
+      role: 'Kỹ sư Frontend & Xử lý Dữ liệu Realtime',
       description:
         'Bảng điều khiển trung tâm truyền phát tọa độ không gian, nhiệt độ pin, độ trễ mạng và lộ trình bay cho các thiết bị robot tự hành với tần suất cập nhật dưới một giây.',
+      keyFeatures: [
+        'Biểu đồ đo từ xa cập nhật liên tục với độ trễ thấp',
+        'Bản đồ vị trí tọa độ thời gian thực (MQTT Protocol)',
+        'Cảnh báo ngưỡng an toàn pin và điều kiện kết nối',
+      ],
       tags: ['React', 'Recharts', 'Express.js', 'MQTT', 'Tailwind'],
       image: 'aeropulse',
       icon: <Activity className="w-4 h-4" />,
@@ -55,8 +80,14 @@ export const Projects: React.FC = () => {
       title: 'Aetheria — Nền tảng Nghiên cứu & Tổng hợp Tri thức Học thuật AI',
       category: 'Trí tuệ Nhân tạo & Tri thức',
       filterCategory: 'ai',
+      role: 'Kỹ sư Frontend & Tích hợp AI API',
       description:
         'Môi trường tổng hợp cho sinh viên đại học tiếp nhận tài liệu PDF khoa học, trích xuất đồ thị tri thức ngữ nghĩa và đối chiếu trích dẫn học thuật với trợ lý AI.',
+      keyFeatures: [
+        'Trích xuất và tóm tắt tài liệu PDF thông minh',
+        'Tìm kiếm ngữ nghĩa với Vector Embeddings',
+        'Đối chiếu và xác thực trích dẫn nguồn học thuật',
+      ],
       tags: ['React', 'Gemini API', 'Vector Embeddings', 'Node.js', 'Tailwind'],
       image: 'aetheria',
       icon: <Sparkles className="w-4 h-4" />,
@@ -80,10 +111,10 @@ export const Projects: React.FC = () => {
               <span>04 // DỰ ÁN TIÊU BIỂU</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Dự án Nổi bật
+              Dự án Tiêu biểu & Sản phẩm Thực tế
             </h2>
             <p className="mt-2 text-slate-400 text-sm max-w-xl">
-              Rê chuột qua bất kỳ thẻ dự án nào để thấy con trỏ chuột kích hoạt nhãn hiển thị <code className="text-cyan-300 font-mono text-xs">XEM DỰ ÁN</code>.
+              Các sản phẩm hoàn thiện minh chứng cho năng lực lập trình full-stack, đồ họa 3D và giải quyết bài toán thực tiễn.
             </p>
           </div>
 
@@ -117,7 +148,10 @@ export const Projects: React.FC = () => {
               key={project.id}
               data-cursor="project"
               data-cursor-text="XEM DỰ ÁN"
-              className="group relative rounded-2xl backdrop-blur-xl bg-slate-900/60 border border-slate-800/90 hover:border-slate-700 transition-all duration-300 overflow-hidden flex flex-col justify-between shadow-xl"
+              className="group relative rounded-3xl backdrop-blur-xl bg-slate-900/60 border border-slate-800/90 hover:border-slate-700 transition-all duration-300 overflow-hidden flex flex-col justify-between shadow-xl hover:-translate-y-2 hover:shadow-2xl"
+              style={{
+                transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
+              }}
             >
               {/* Project Card Header / Preview simulation */}
               <div>
@@ -132,7 +166,7 @@ export const Projects: React.FC = () => {
                   />
 
                   {/* Simulated Tech UI Diagram */}
-                  <div className="relative z-10 w-full max-w-sm rounded-xl border border-slate-800 bg-slate-900/90 p-4 shadow-2xl">
+                  <div className="relative z-10 w-full max-w-sm rounded-xl border border-slate-800 bg-slate-900/90 p-4 shadow-2xl transition-transform duration-300 group-hover:scale-[1.02]">
                     <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-800 text-[10px] font-mono text-slate-400">
                       <span className="flex items-center gap-1.5">
                         {project.icon}
@@ -161,16 +195,33 @@ export const Projects: React.FC = () => {
                 </div>
 
                 {/* Card Details */}
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">
+                <div className="p-6 sm:p-7">
+                  <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 mb-2">
+                    <UserCheck className="w-3.5 h-3.5" />
+                    <span>{project.role}</span>
+                  </div>
+
+                  <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
                     {project.title}
                   </h3>
-                  <p className="mt-2.5 text-xs text-slate-300 leading-relaxed">
+                  
+                  <p className="mt-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
                     {project.description}
                   </p>
 
+                  {/* Key Features */}
+                  <div className="mt-4 pt-3 border-t border-slate-800/80 space-y-1.5">
+                    <div className="text-[10px] font-mono uppercase tracking-wider text-slate-500">Chức năng chính:</div>
+                    {project.keyFeatures.map((feat, fIdx) => (
+                      <div key={fIdx} className="flex items-start gap-2 text-xs text-slate-300">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                        <span>{feat}</span>
+                      </div>
+                    ))}
+                  </div>
+
                   {/* Tags */}
-                  <div className="mt-4 flex flex-wrap gap-1.5">
+                  <div className="mt-5 flex flex-wrap gap-1.5">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
@@ -184,7 +235,7 @@ export const Projects: React.FC = () => {
               </div>
 
               {/* Bottom Footer Links */}
-              <div className="p-6 pt-0 border-t border-slate-800/60 mt-4 flex items-center justify-between">
+              <div className="p-6 sm:p-7 pt-0 border-t border-slate-800/60 mt-4 flex items-center justify-between">
                 <div className="text-[11px] font-mono text-slate-400">
                   Bản thử nghiệm tương tác
                 </div>
@@ -196,6 +247,7 @@ export const Projects: React.FC = () => {
                     rel="noopener noreferrer"
                     className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
                     aria-label="Xem mã nguồn GitHub"
+                    title="Mã nguồn GitHub"
                   >
                     <Github className="w-4 h-4" />
                   </a>
@@ -203,7 +255,7 @@ export const Projects: React.FC = () => {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-200 bg-slate-800/80 hover:bg-slate-700 hover:text-white border border-slate-700/60 transition-colors"
+                    className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium text-slate-200 bg-slate-800/80 hover:bg-cyan-500 hover:text-slate-950 border border-slate-700/60 transition-all shadow-sm"
                   >
                     <span>Xem dự án</span>
                     <ExternalLink className="w-3.5 h-3.5" />

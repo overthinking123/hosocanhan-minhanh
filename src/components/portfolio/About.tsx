@@ -43,7 +43,7 @@ export const About: React.FC = () => {
             </p>
             <p>
               Tôi đặc biệt yêu thích việc viết mã TypeScript an toàn kiểu dữ liệu, tối ưu hóa hiệu năng render 60fps và sáng tạo các thành phần giao diện đặc trưng
-              như hệ thống con trỏ chuột tùy biến và phòng thí nghiệm CSS mà bạn đang trải nghiệm.
+              như hệ thống con trỏ chuột tùy biến và các thành phần đồ họa tương tác trong portfolio này.
             </p>
 
             {/* Bullet Highlights */}

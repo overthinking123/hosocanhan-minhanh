@@ -12,7 +12,9 @@ import {
   ExternalLink,
   ChevronDown,
   UserCog,
-  FileDown
+  FileDown,
+  Github,
+  Linkedin
 } from 'lucide-react';
 
 export const Hero: React.FC = () => {
@@ -129,6 +131,30 @@ export const Hero: React.FC = () => {
               >
                 Liên hệ →
               </a>
+
+              {/* Social Links */}
+              <div className="flex items-center gap-2 pl-2 border-l border-slate-800">
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-xl text-slate-400 hover:text-white bg-slate-900/60 hover:bg-slate-800 border border-slate-800 transition-all hover:scale-105"
+                  aria-label="GitHub Profile"
+                  title="GitHub"
+                >
+                  <Github className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-xl text-slate-400 hover:text-cyan-400 bg-slate-900/60 hover:bg-slate-800 border border-slate-800 transition-all hover:scale-105"
+                  aria-label="LinkedIn Profile"
+                  title="LinkedIn"
+                >
+                  <Linkedin className="w-4 h-4" />
+                </a>
+              </div>
             </div>
 
             {/* Interactive Cursor Playground Card inside Hero */}

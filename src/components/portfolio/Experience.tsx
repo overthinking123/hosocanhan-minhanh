@@ -10,7 +10,9 @@ import {
   Sparkles,
   GitPullRequest,
   Star,
-  ExternalLink
+  ExternalLink,
+  ShieldCheck,
+  Users
 } from 'lucide-react';
 
 interface TimelineItem {
@@ -19,14 +21,14 @@ interface TimelineItem {
   organization: string;
   description: string;
   tags: string[];
-  type: 'award' | 'work' | 'education' | 'community';
+  type: 'award' | 'work' | 'certificate' | 'community';
   highlightIcon: React.ReactNode;
 }
 
 export const Experience: React.FC = () => {
   const { settings } = useCursor();
   const activeColor = settings.color || '#00F0FF';
-  const [filter, setFilter] = useState<'all' | 'award' | 'work' | 'education'>('all');
+  const [filter, setFilter] = useState<'all' | 'award' | 'work' | 'certificate' | 'community'>('all');
 
   const timeline: TimelineItem[] = [
     {
@@ -50,14 +52,14 @@ export const Experience: React.FC = () => {
       highlightIcon: <Briefcase className="w-5 h-5 text-cyan-400" />,
     },
     {
-      year: '2026 - HIỆN TẠI',
-      role: 'Cử nhân Công nghệ Thông tin',
-      organization: 'Đại học Lạc Hồng',
+      year: '2024',
+      role: 'Chứng nhận Sáng tạo Công nghệ Hackathon',
+      organization: 'Hội đồng Khoa CNTT & Đại học',
       description:
-        'Theo học chương trình CNTT chuyên sâu về Kỹ thuật Phần mềm, Điện toán Web và Hệ thống Phân tán. Duy trì kết quả học tập tốt và tích cực tham gia các dự án thực tế.',
-      tags: ['Học tập', 'Nền tảng KHMT', 'Giải thuật'],
-      type: 'education',
-      highlightIcon: <GraduationCap className="w-5 h-5 text-purple-400" />,
+        'Chứng nhận hoàn thành và đạt giải tại cuộc thi phát triển ứng dụng thông minh cấp trường, ghi nhận năng lực ứng dụng WebGL và phân tích hệ thống dữ liệu.',
+      tags: ['Chứng chỉ', 'Xác thực', 'Công nghệ Web'],
+      type: 'certificate',
+      highlightIcon: <ShieldCheck className="w-5 h-5 text-purple-400" />,
     },
     {
       year: '2023',
@@ -74,33 +76,37 @@ export const Experience: React.FC = () => {
   const filteredItems = filter === 'all' ? timeline : timeline.filter((item) => item.type === filter);
 
   return (
-    <section id="experience" className="py-24 relative z-10 border-t border-slate-900">
+    <section id="achievements" className="py-24 relative z-10 border-t border-slate-900 scroll-mt-16">
+      {/* Fallback anchor for #experience link */}
+      <div id="experience" className="sr-only">Hành trình & Kinh nghiệm</div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ======================================================== */}
-        {/* SECTION HEADER: ƯU TIÊN PHẦN THÀNH TÍCH (YÊU CẦU XIII)   */}
+        {/* SECTION HEADER: ƯU TIÊN PHẦN THÀNH TÍCH (YÊU CẦU F, G, H, I) */}
         {/* ======================================================== */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <div>
             <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2">
               <span className="w-2 h-0.5 bg-cyan-400 inline-block" />
-              <span>05 // THÀNH TÍCH, CHỨNG CHỈ & KINH NGHIỆM</span>
+              <span>05 // THÀNH TÍCH, CHỨNG CHỈ & HOẠT ĐỘNG</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Thành tích & Hành trình Phát triển
+              Thành tích & Hoạt động Phát triển
             </h2>
             <p className="mt-2 text-slate-400 text-sm max-w-xl">
-              Hồ sơ thành tích cuộc thi, hoạt động học thuật và trải nghiệm lập trình thực tế được cập nhật đến năm 2026.
+              Hồ sơ thành tích cuộc thi, chứng nhận năng lực và hoạt động chuyên môn thực tế được cập nhật đến năm 2026.
             </p>
           </div>
 
           {/* Filter Pills */}
-          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-slate-900 border border-slate-800 self-start text-xs font-mono">
+          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-slate-900 border border-slate-800 self-start text-xs font-mono flex-wrap">
             {[
               { id: 'all', label: 'Tất cả' },
               { id: 'award', label: '🏆 Thành tích' },
-              { id: 'work', label: '💼 Kinh nghiệm' },
-              { id: 'education', label: '📚 Học vấn' },
+              { id: 'work', label: '💼 Hoạt động & Lab' },
+              { id: 'certificate', label: '📜 Chứng chỉ' },
+              { id: 'community', label: '🚀 Mã nguồn mở' },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -121,7 +127,7 @@ export const Experience: React.FC = () => {
         {/* CÁC THẺ THÀNH TÍCH NỔI BẬT (HIGHLIGHT CARDS)             */}
         {/* ======================================================== */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-          <div className="p-4 rounded-2xl bg-slate-900/60 border border-amber-500/30 backdrop-blur-xl shadow-lg flex items-start gap-3.5">
+          <div className="p-4 rounded-2xl bg-slate-900/60 border border-amber-500/30 backdrop-blur-xl shadow-lg flex items-start gap-3.5 transition-all duration-300 hover:scale-[1.02]">
             <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center flex-shrink-0">
               <Trophy className="w-5 h-5 text-amber-400" />
             </div>
@@ -132,29 +138,29 @@ export const Experience: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-900/60 border border-cyan-500/30 backdrop-blur-xl shadow-lg flex items-start gap-3.5">
+          <div className="p-4 rounded-2xl bg-slate-900/60 border border-cyan-500/30 backdrop-blur-xl shadow-lg flex items-start gap-3.5 transition-all duration-300 hover:scale-[1.02]">
             <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center flex-shrink-0">
               <Briefcase className="w-5 h-5 text-cyan-400" />
             </div>
             <div>
               <span className="text-[10px] font-mono text-cyan-400 uppercase font-semibold">HOẠT ĐỘNG CHUYÊN MÔN</span>
               <h4 className="text-xs font-bold text-white mt-0.5">Trợ giảng Lab CNTT</h4>
-              <p className="text-[11px] text-slate-400 mt-1">Cố vấn giải thuật, Git & nền tảng lập trình web</p>
+              <p className="text-[11px] text-slate-400 mt-1">Cố vấn giải thuật, Git & nền tảng lập trình web (2024 - 2026)</p>
             </div>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-900/60 border border-purple-500/30 backdrop-blur-xl shadow-lg flex items-start gap-3.5">
+          <div className="p-4 rounded-2xl bg-slate-900/60 border border-purple-500/30 backdrop-blur-xl shadow-lg flex items-start gap-3.5 transition-all duration-300 hover:scale-[1.02]">
             <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
-              <GraduationCap className="w-5 h-5 text-purple-400" />
+              <ShieldCheck className="w-5 h-5 text-purple-400" />
             </div>
             <div>
-              <span className="text-[10px] font-mono text-purple-400 uppercase font-semibold">HỌC VẤN CHÍNH QUY</span>
-              <h4 className="text-xs font-bold text-white mt-0.5">Cử nhân CNTT 2026</h4>
-              <p className="text-[11px] text-slate-400 mt-1">Đại học Lạc Hồng • Chuyên sâu Kỹ thuật Phần mềm</p>
+              <span className="text-[10px] font-mono text-purple-400 uppercase font-semibold">CHỨNG CHỈ & CHỨNG NHẬN</span>
+              <h4 className="text-xs font-bold text-white mt-0.5">Chứng nhận Hackathon</h4>
+              <p className="text-[11px] text-slate-400 mt-1">Xác thực thành tích sáng tạo ứng dụng thông minh</p>
             </div>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-900/60 border border-emerald-500/30 backdrop-blur-xl shadow-lg flex items-start gap-3.5">
+          <div className="p-4 rounded-2xl bg-slate-900/60 border border-emerald-500/30 backdrop-blur-xl shadow-lg flex items-start gap-3.5 transition-all duration-300 hover:scale-[1.02]">
             <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center flex-shrink-0">
               <GitPullRequest className="w-5 h-5 text-emerald-400" />
             </div>
@@ -167,7 +173,7 @@ export const Experience: React.FC = () => {
         </div>
 
         {/* ======================================================== */}
-        {/* TIMELINE CONTAINER CHI TIẾT                              */}
+        {/* TIMELINE CONTAINER CHI TIẾT (QUÁ TRÌNH PHÁT TRIỂN)       */}
         {/* ======================================================== */}
         <div className="relative border-l border-slate-800 ml-4 sm:ml-8 space-y-10 pl-6 sm:pl-8">
           {filteredItems.map((item, idx) => (
@@ -181,7 +187,7 @@ export const Experience: React.FC = () => {
                 }}
               />
 
-              <div className="rounded-2xl backdrop-blur-xl bg-slate-900/50 border border-slate-800/90 p-5 sm:p-6 transition-all duration-200 hover:border-slate-700 shadow-xl">
+              <div className="rounded-2xl backdrop-blur-xl bg-slate-900/50 border border-slate-800/90 p-5 sm:p-6 transition-all duration-300 hover:border-slate-700 hover:translate-x-1 shadow-xl">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
                     <span className="text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
