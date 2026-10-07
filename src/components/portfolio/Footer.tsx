@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCursor } from '../../context/CursorContext';
 import { useProfile } from '../../context/ProfileContext';
-import { ArrowUp, Terminal, Sparkles, Heart } from 'lucide-react';
+import { ArrowUp, Terminal, Sparkles, Github, Linkedin, Mail } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const { settings, setIsPanelOpen } = useCursor();
@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="py-12 border-t border-slate-900 bg-slate-950 relative z-10 text-xs font-mono text-slate-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2">
             <Terminal className="w-4 h-4" style={{ color: activeColor }} />
             <span className="text-slate-300 font-semibold font-sans uppercase">
@@ -23,6 +23,38 @@ export const Footer: React.FC = () => {
             </span>
             <span className="text-slate-600">•</span>
             <span>{profile.title || 'SINH VIÊN CNTT & LẬP TRÌNH WEB'}</span>
+          </div>
+
+          {/* Social Profiles & Email */}
+          <div className="flex items-center gap-4">
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors"
+              title="GitHub"
+            >
+              <Github className="w-4 h-4" />
+              <span>GitHub</span>
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-slate-400 hover:text-cyan-400 transition-colors"
+              title="LinkedIn"
+            >
+              <Linkedin className="w-4 h-4" />
+              <span>LinkedIn</span>
+            </a>
+            <a
+              href="mailto:nanh3241@gmail.com"
+              className="flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors"
+              title="Email"
+            >
+              <Mail className="w-4 h-4" />
+              <span>Email</span>
+            </a>
           </div>
 
           <div className="flex items-center gap-4">
@@ -47,7 +79,7 @@ export const Footer: React.FC = () => {
 
         <div className="mt-8 pt-6 border-t border-slate-900/80 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-600 gap-2">
           <div>
-            © {new Date().getFullYear()} {profile.fullName}. Bảo lưu mọi quyền.
+            © 2026 {profile.fullName}. E-Portfolio Cá nhân Sinh viên IT. Bảo lưu mọi quyền.
           </div>
           <div>
             Hiệu năng cao • Hoạt ảnh mượt mà • Tương thích mọi thiết bị
@@ -57,4 +89,3 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
-

@@ -8,7 +8,6 @@ import {
   X, 
   Github, 
   Linkedin, 
-  Mail, 
   Sun, 
   Moon,
   MousePointer,
@@ -26,30 +25,45 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
   const { profile, setIsProfileModalOpen } = useProfile();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
 
   const shortName = getShortDisplayName(profile.fullName);
+
+  const navLinks = [
+    { name: 'Trang chủ', href: '#hero', id: 'hero' },
+    { name: 'Giới thiệu', href: '#about', id: 'about' },
+    { name: 'Học vấn', href: '#education', id: 'education' },
+    { name: 'Kỹ năng', href: '#skills', id: 'skills' },
+    { name: 'Dự án', href: '#projects', id: 'projects' },
+    { name: 'Thành tích', href: '#achievements', id: 'achievements' },
+    { name: 'Mục tiêu', href: '#career-goals', id: 'career-goals' },
+    { name: 'Liên hệ', href: '#contact', id: 'contact' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+
+      // Scroll spy for active section highlight
+      const scrollPos = window.scrollY + 200;
+      for (let i = navLinks.length - 1; i >= 0; i--) {
+        const section = document.querySelector(navLinks[i].href);
+        if (section) {
+          const top = (section as HTMLElement).offsetTop;
+          if (scrollPos >= top) {
+            setActiveSection(navLinks[i].id);
+            break;
+          }
+        }
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Giới thiệu', href: '#about' },
-    { name: 'Học vấn', href: '#education' },
-    { name: 'Kỹ năng', href: '#skills' },
-    { name: 'Dự án', href: '#projects' },
-    { name: 'Thành tích', href: '#achievements' },
-    { name: 'Mục tiêu', href: '#career-goals' },
-    { name: 'Liên hệ', href: '#contact' },
-  ];
-
   const handleDownloadCV = () => {
-    // Generate lightweight mock CV download or toast
-    const content = `HỒ SƠ CÁ NHÂN / CV - NGUYỄN ĐỖ MINH ANH (2026)\n================================================\nHọ và tên: ${profile.fullName}\nChuyên ngành: ${profile.major || 'Công nghệ Thông tin'}\nTrường đào tạo: ${profile.university || 'Đại học Lạc Hồng'}\nEmail: nanh3241@gmail.com\nKỹ năng chính: React, TypeScript, Three.js, Node.js, CSS Animations, 2D/3D Transforms, WebGL\nThành tích: Đội thi Xuất sắc Hackathon Đại học 2024, Trợ giảng Lab CNTT`;
+    const content = `HỒ SƠ CÁ NHÂN / CV - NGUYỄN ĐỖ MINH ANH (2026)\n================================================\nHọ và tên: ${profile.fullName}\nChuyên ngành: ${profile.major || 'Công nghệ Thông tin'}\nTrường đào tạo: ${profile.university || 'Đại học Lạc Hồng'}\nEmail: nanh3241@gmail.com\nKỹ năng chính: React, TypeScript, Three.js, Node.js, CSS Animations, 2D/3D Transforms, WebGL\nThành tích: Đội thi Xuất sắc Hackathon Đại học 2024, Trợ giảng Lab CNTT Khoa CNTT`;
     const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
@@ -59,9 +73,10 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
     URL.revokeObjectURL(url);
   };
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, id: string) => {
     e.preventDefault();
     setMobileMenuOpen(false);
+    setActiveSection(id);
     const target = document.querySelector(href);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
@@ -73,7 +88,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
       <div
         className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 transition-all duration-300 ${
           isScrolled
-            ? 'py-3 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/80 shadow-lg shadow-black/20'
+            ? 'py-3 bg-slate-950/85 backdrop-blur-xl border-b border-slate-800/80 shadow-lg shadow-black/20'
             : 'py-5 bg-transparent'
         }`}
       >
@@ -81,7 +96,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
           {/* Brand Logo */}
           <a
             href="#hero"
-            onClick={(e) => handleNavClick(e, '#hero')}
+            onClick={(e) => handleNavClick(e, '#hero', 'hero')}
             className="group flex items-center gap-2.5 text-slate-100 focus:outline-none"
           >
             <div
@@ -95,31 +110,41 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
                 {shortName}
                 <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: settings.color }} />
               </span>
-              <span className="text-[10px] font-mono text-slate-400 -mt-0.5">CNTT • LẬP TRÌNH</span>
+              <span className="text-[10px] font-mono text-slate-400 -mt-0.5">E-PORTFOLIO 2026</span>
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 rounded-full px-4 py-1.5 bg-slate-900/60 backdrop-blur-md border border-slate-800/80">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="px-3 py-1 text-xs font-medium text-slate-300 hover:text-white rounded-full transition-colors hover:bg-white/5"
-              >
-                {link.name}
-              </a>
-            ))}
+          <nav className="hidden lg:flex items-center gap-1 rounded-full px-4 py-1.5 bg-slate-900/60 backdrop-blur-md border border-slate-800/80">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.id;
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href, link.id)}
+                  className={`px-3 py-1 text-xs font-medium rounded-full transition-all duration-200 ${
+                    isActive
+                      ? 'bg-slate-800 text-white font-semibold shadow-sm'
+                      : 'text-slate-400 hover:text-white hover:bg-white/5'
+                  }`}
+                  style={{
+                    color: isActive ? settings.color : undefined,
+                  }}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
           </nav>
 
-          {/* Action Buttons: Download CV + Edit Profile + Cursor Customizer Trigger + Theme + Github */}
+          {/* Action Buttons: Download CV + Edit Profile + Cursor Customizer Trigger + Theme + Github/Linkedin */}
           <div className="hidden sm:flex items-center gap-2">
             {/* Download CV */}
             <button
               onClick={handleDownloadCV}
               title="Tải hồ sơ cá nhân (CV)"
-              className="group flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-cyan-500/40 bg-cyan-950/30 hover:bg-cyan-900/50 text-cyan-300 hover:text-white transition-all shadow-sm"
+              className="group flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-cyan-500/40 bg-cyan-950/30 hover:bg-cyan-900/50 text-cyan-300 hover:text-white transition-all shadow-sm hover:scale-105 active:scale-95"
             >
               <FileDown className="w-3.5 h-3.5 text-cyan-400 group-hover:-translate-y-0.5 transition-transform" />
               <span>Tải CV</span>
@@ -129,7 +154,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
             <button
               onClick={() => setIsProfileModalOpen(true)}
               title="Chỉnh sửa thông tin hồ sơ & Ảnh đại diện"
-              className="group flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-slate-800 bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white transition-all shadow-sm hover:border-cyan-500/50"
+              className="group flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-slate-800 bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white transition-all shadow-sm hover:border-cyan-500/50 hover:scale-105 active:scale-95"
             >
               <UserCog className="w-3.5 h-3.5 text-cyan-400 group-hover:rotate-12 transition-transform" />
               <span>Hồ sơ</span>
@@ -161,20 +186,31 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
               {darkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-blue-400" />}
             </button>
 
-            {/* GitHub Profile */}
+            {/* Social Icons */}
             <a
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/80 border border-slate-800 transition-colors"
+              className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/80 border border-slate-800 transition-all hover:scale-105"
               aria-label="Kho lưu trữ GitHub"
+              title="GitHub"
             >
               <Github className="w-4 h-4" />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg text-slate-400 hover:text-cyan-400 hover:bg-slate-800/80 border border-slate-800 transition-all hover:scale-105"
+              aria-label="Hồ sơ LinkedIn"
+              title="LinkedIn"
+            >
+              <Linkedin className="w-4 h-4" />
             </a>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex sm:hidden items-center gap-2">
+          <div className="flex lg:hidden items-center gap-2">
             <button
               onClick={() => setIsProfileModalOpen(true)}
               className="p-2 rounded-lg text-cyan-400 bg-slate-900 border border-slate-800"
@@ -201,17 +237,24 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div className="sm:hidden mt-3 p-4 rounded-2xl bg-slate-900/95 backdrop-blur-xl border border-slate-800 shadow-xl space-y-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="block px-3 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-xl"
-              >
-                {link.name}
-              </a>
-            ))}
+          <div className="lg:hidden mt-3 p-4 rounded-2xl bg-slate-900/95 backdrop-blur-xl border border-slate-800 shadow-xl space-y-1.5 animate-in fade-in">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.id;
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href, link.id)}
+                  className={`block px-3 py-2 text-sm font-medium rounded-xl transition-colors ${
+                    isActive
+                      ? 'bg-slate-800 text-cyan-400 font-semibold'
+                      : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+                  }`}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
             <div className="pt-2 border-t border-slate-800 flex items-center justify-between gap-2 flex-wrap">
               <button
                 onClick={() => {
@@ -247,4 +290,3 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
     </header>
   );
 };
-
