@@ -205,7 +205,7 @@ export const Projects: React.FC = () => {
                     rel="noopener noreferrer"
                     className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-200 bg-slate-800/80 hover:bg-slate-700 hover:text-white border border-slate-700/60 transition-colors"
                   >
-                    <span>Xem chi tiết</span>
+                    <span>Xem dự án</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>

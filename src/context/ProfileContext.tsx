@@ -6,8 +6,8 @@ export const DEFAULT_PROFILE: UserProfile = {
   birthYear: '2007',
   university: 'Đại học Lạc Hồng',
   major: 'Công nghệ Thông tin',
-  title: 'IT STUDENT • WEB DEVELOPER & 3D ENTHUSIAST',
-  bio: 'Passionate Information Technology student engineering modern web experiences, high-performance frontends, and interactive 3D digital interfaces.',
+  title: 'SINH VIÊN CNTT • LẬP TRÌNH WEB & ĐỒ HỌA 3D',
+  bio: 'Sinh viên Công nghệ Thông tin đam mê phát triển trải nghiệm web hiện đại, giao diện frontend hiệu năng cao và đồ họa 3D tương tác.',
   avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80',
 };
 

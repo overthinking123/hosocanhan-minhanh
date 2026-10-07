@@ -12,7 +12,8 @@ import {
   Sun, 
   Moon,
   MousePointer,
-  UserCog
+  UserCog,
+  FileDown
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -39,11 +40,23 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
   const navLinks = [
     { name: 'Giới thiệu', href: '#about' },
     { name: 'Kỹ năng', href: '#skills' },
-    { name: 'Học CSS', href: '#css-lab' },
+    { name: 'Kỹ năng CSS', href: '#css-lab' },
     { name: 'Dự án', href: '#projects' },
-    { name: 'Hành trình', href: '#experience' },
+    { name: 'Thành tích', href: '#experience' },
     { name: 'Liên hệ', href: '#contact' },
   ];
+
+  const handleDownloadCV = () => {
+    // Generate lightweight mock CV download or toast
+    const content = `HỒ SƠ CÁ NHÂN / CV - NGUYỄN ĐỖ MINH ANH (2026)\n================================================\nHọ và tên: ${profile.fullName}\nChuyên ngành: ${profile.major || 'Công nghệ Thông tin'}\nTrường đào tạo: ${profile.university || 'Đại học Lạc Hồng'}\nEmail: nanh3241@gmail.com\nKỹ năng chính: React, TypeScript, Three.js, Node.js, CSS Animations, 2D/3D Transforms, WebGL\nThành tích: Đội thi Xuất sắc Hackathon Đại học 2024, Trợ giảng Lab CNTT`;
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `CV_${profile.fullName.replace(/\s+/g, '_')}_2026.txt`;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -99,8 +112,18 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
             ))}
           </nav>
 
-          {/* Action Buttons: Edit Profile + Cursor Customizer Trigger + Theme + Github */}
+          {/* Action Buttons: Download CV + Edit Profile + Cursor Customizer Trigger + Theme + Github */}
           <div className="hidden sm:flex items-center gap-2">
+            {/* Download CV */}
+            <button
+              onClick={handleDownloadCV}
+              title="Tải hồ sơ cá nhân (CV)"
+              className="group flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-cyan-500/40 bg-cyan-950/30 hover:bg-cyan-900/50 text-cyan-300 hover:text-white transition-all shadow-sm"
+            >
+              <FileDown className="w-3.5 h-3.5 text-cyan-400 group-hover:-translate-y-0.5 transition-transform" />
+              <span>Tải CV</span>
+            </button>
+
             {/* Edit Profile Quick Trigger */}
             <button
               onClick={() => setIsProfileModalOpen(true)}
@@ -188,15 +211,25 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
                 {link.name}
               </a>
             ))}
-            <div className="pt-2 border-t border-slate-800 flex items-center justify-between">
+            <div className="pt-2 border-t border-slate-800 flex items-center justify-between gap-2 flex-wrap">
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  handleDownloadCV();
+                }}
+                className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono text-cyan-300 bg-cyan-950/50 border border-cyan-800/60 rounded-lg"
+              >
+                <FileDown className="w-3.5 h-3.5" />
+                <span>Tải CV</span>
+              </button>
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   setIsProfileModalOpen(true);
                 }}
-                className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono text-cyan-400 bg-cyan-950/40 border border-cyan-800/50 rounded-lg"
+                className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono text-slate-300 bg-slate-800/80 border border-slate-700/60 rounded-lg"
               >
-                <UserCog className="w-3.5 h-3.5" />
+                <UserCog className="w-3.5 h-3.5 text-cyan-400" />
                 <span>Cài đặt hồ sơ</span>
               </button>
               <button
@@ -204,7 +237,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
                 className="flex items-center gap-2 px-3 py-1.5 text-xs text-slate-300 rounded-lg bg-slate-800"
               >
                 {darkMode ? <Sun className="w-3.5 h-3.5 text-amber-400" /> : <Moon className="w-3.5 h-3.5 text-blue-400" />}
-                <span>{darkMode ? 'Giao diện sáng' : 'Giao diện tối'}</span>
+                <span>{darkMode ? 'Sáng' : 'Tối'}</span>
               </button>
             </div>
           </div>

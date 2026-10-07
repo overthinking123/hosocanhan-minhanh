@@ -11,7 +11,8 @@ import {
   Layers, 
   ExternalLink,
   ChevronDown,
-  UserCog
+  UserCog,
+  FileDown
 } from 'lucide-react';
 
 export const Hero: React.FC = () => {
@@ -30,6 +31,17 @@ export const Hero: React.FC = () => {
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
     document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleDownloadCV = () => {
+    const content = `HỒ SƠ CÁ NHÂN / CV - NGUYỄN ĐỖ MINH ANH (2026)\n================================================\nHọ và tên: ${profile.fullName}\nChuyên ngành: ${profile.major || 'Công nghệ Thông tin'}\nTrường đào tạo: ${profile.university || 'Đại học Lạc Hồng'}\nEmail: nanh3241@gmail.com\nKỹ năng chính: React, TypeScript, Three.js, Node.js, CSS Animations, 2D/3D Transforms, WebGL\nThành tích: Đội thi Xuất sắc Hackathon Đại học 2024, Trợ giảng Lab CNTT`;
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `CV_${profile.fullName.replace(/\s+/g, '_')}_2026.txt`;
+    link.click();
+    URL.revokeObjectURL(url);
   };
 
   return (
@@ -85,6 +97,14 @@ export const Hero: React.FC = () => {
                 <span>Khám phá dự án</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
+
+              <button
+                onClick={handleDownloadCV}
+                className="group flex items-center gap-2 px-5 py-3 rounded-xl font-medium text-sm text-cyan-300 bg-cyan-950/40 hover:bg-cyan-900/60 border border-cyan-500/40 backdrop-blur-md shadow-md transition-all duration-200 hover:border-cyan-400 hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <FileDown className="w-4 h-4 text-cyan-400 group-hover:-translate-y-0.5 transition-transform" />
+                <span>Tải CV</span>
+              </button>
 
               <button
                 onClick={() => setIsProfileModalOpen(true)}
