@@ -23,55 +23,55 @@ export const Skills: React.FC = () => {
 
   const categories: SkillCategory[] = [
     {
-      title: 'Frontend Engineering',
+      title: 'Lập trình Frontend',
       icon: <Code className="w-4 h-4" />,
-      description: 'Building reactive, component-driven, and accessible user interfaces with clean architecture.',
+      description: 'Xây dựng giao diện người dùng phản ứng nhanh, kiến trúc module sạch sẽ và tối ưu trợ năng.',
       items: [
-        { name: 'React 18 / 19', level: 'Advanced', highlight: true },
-        { name: 'TypeScript', level: 'Advanced', highlight: true },
-        { name: 'Tailwind CSS', level: 'Advanced', highlight: true },
-        { name: 'Next.js', level: 'Proficient' },
-        { name: 'Semantic HTML5 & CSS', level: 'Mastery' },
-        { name: 'State Management (Zustand/Redux)', level: 'Proficient' },
+        { name: 'React 18 / 19', level: 'Thành thạo', highlight: true },
+        { name: 'TypeScript', level: 'Thành thạo', highlight: true },
+        { name: 'Tailwind CSS', level: 'Thành thạo', highlight: true },
+        { name: 'Next.js', level: 'Khá' },
+        { name: 'Semantic HTML5 & CSS', level: 'Chuyên sâu' },
+        { name: 'Quản lý trạng thái (Zustand/Redux)', level: 'Khá' },
       ],
     },
     {
-      title: '3D & Creative Web',
+      title: 'Đồ họa 3D & Web Sáng tạo',
       icon: <Layers className="w-4 h-4" />,
-      description: 'Real-time rendering, interactive graphics, particle systems, and kinetic UI animations.',
+      description: 'Đồ họa thời gian thực, hệ thống hạt (particles) và hiệu ứng chuyển động tương tác trực quan.',
       items: [
-        { name: 'Three.js & WebGL', level: 'Proficient', highlight: true },
-        { name: 'HTML5 Canvas 2D', level: 'Advanced', highlight: true },
-        { name: 'Motion / Framer Motion', level: 'Advanced' },
-        { name: 'Custom Shader Math', level: 'Intermediate' },
-        { name: 'Blender 3D Asset Prep', level: 'Intermediate' },
-        { name: 'Performance Profiling (60fps)', level: 'Proficient' },
+        { name: 'Three.js & WebGL', level: 'Khá', highlight: true },
+        { name: 'HTML5 Canvas 2D', level: 'Thành thạo', highlight: true },
+        { name: 'Motion / Framer Motion', level: 'Thành thạo' },
+        { name: 'Custom Shader Math', level: 'Trung cấp' },
+        { name: 'Xử lý mô hình 3D Blender', level: 'Trung cấp' },
+        { name: 'Tối ưu hiệu năng (60fps)', level: 'Khá' },
       ],
     },
     {
-      title: 'Backend & Data',
+      title: 'Backend & Cơ sở Dữ liệu',
       icon: <Server className="w-4 h-4" />,
-      description: 'Engineering robust server APIs, database schema design, and asynchronous workflows.',
+      description: 'Thiết kế RESTful API an toàn, lược đồ cơ sở dữ liệu và quy trình xử lý dữ liệu bất đồng bộ.',
       items: [
-        { name: 'Node.js & Express', level: 'Advanced', highlight: true },
-        { name: 'RESTful API Design', level: 'Advanced' },
-        { name: 'PostgreSQL / SQL', level: 'Proficient', highlight: true },
-        { name: 'MongoDB', level: 'Proficient' },
-        { name: 'Firebase / Firestore', level: 'Proficient' },
-        { name: 'Authentication & JWT', level: 'Proficient' },
+        { name: 'Node.js & Express', level: 'Thành thạo', highlight: true },
+        { name: 'Thiết kế RESTful API', level: 'Thành thạo' },
+        { name: 'PostgreSQL / SQL', level: 'Khá', highlight: true },
+        { name: 'MongoDB', level: 'Khá' },
+        { name: 'Firebase / Firestore', level: 'Khá' },
+        { name: 'Xác thực & JWT Token', level: 'Khá' },
       ],
     },
     {
-      title: 'DevOps & Workflow',
+      title: 'DevOps & Quy trình Làm việc',
       icon: <Wrench className="w-4 h-4" />,
-      description: 'Industry-standard version control, CI/CD automation, containers, and product design tools.',
+      description: 'Quy trình kiểm soát phiên bản tiêu chuẩn, tự động hóa CI/CD, đóng gói container và công cụ thiết kế.',
       items: [
-        { name: 'Git & GitHub Workflows', level: 'Advanced', highlight: true },
-        { name: 'Docker Containers', level: 'Intermediate' },
-        { name: 'Vite & Modern Bundlers', level: 'Advanced' },
-        { name: 'Linux / Bash Scripting', level: 'Proficient' },
-        { name: 'Figma UI/UX Prototyping', level: 'Proficient', highlight: true },
-        { name: 'Postman API Testing', level: 'Proficient' },
+        { name: 'Quy trình Git & GitHub', level: 'Thành thạo', highlight: true },
+        { name: 'Docker Containers', level: 'Trung cấp' },
+        { name: 'Vite & Bundlers Hiện đại', level: 'Thành thạo' },
+        { name: 'Linux / Bash Scripting', level: 'Khá' },
+        { name: 'Thiết kế Figma UI/UX', level: 'Khá', highlight: true },
+        { name: 'Kiểm thử Postman API', level: 'Khá' },
       ],
     },
   ];
@@ -83,13 +83,13 @@ export const Skills: React.FC = () => {
         <div className="flex flex-col mb-12">
           <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2">
             <span className="w-2 h-0.5 bg-cyan-400 inline-block" />
-            <span>02 // TECHNICAL ARSENAL</span>
+            <span>02 // KỸ NĂNG CHUYÊN MÔN</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Skills & Technologies
+            Kỹ năng & Công nghệ
           </h2>
           <p className="mt-2 text-slate-400 text-sm max-w-xl">
-            A balanced stack spanning core computer science fundamentals, reactive web development, and 3D visual computing.
+            Bộ kỹ năng toàn diện kết hợp giữa nền tảng khoa học máy tính, lập trình web hiện đại và đồ họa 3D tương tác.
           </p>
         </div>
 
@@ -128,7 +128,7 @@ export const Skills: React.FC = () => {
               <h3 className="text-lg font-bold text-white font-sans flex items-center gap-2">
                 <span>{categories[activeCategory].title}</span>
                 <span className="text-[11px] font-mono font-normal px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
-                  {categories[activeCategory].items.length} Technologies
+                  {categories[activeCategory].items.length} Công nghệ
                 </span>
               </h3>
               <p className="mt-1 text-xs text-slate-400 max-w-2xl">
@@ -165,7 +165,7 @@ export const Skills: React.FC = () => {
 
                 {skill.highlight && (
                   <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">
-                    Core
+                    Cốt lõi
                   </span>
                 )}
               </div>

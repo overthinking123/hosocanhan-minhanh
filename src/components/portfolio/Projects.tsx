@@ -11,11 +11,11 @@ export const Projects: React.FC = () => {
   const projects: (ProjectItem & { filterCategory: '3d' | 'fullstack' | 'ai'; icon: React.ReactNode })[] = [
     {
       id: 'nexus-3d',
-      title: 'Nexus 3D — WebGL Interactive Cyberpunk Showcase',
-      category: '3D Web & Interactive',
+      title: 'Nexus 3D — Không gian Trình diễn Cyberpunk WebGL Tương tác',
+      category: 'Đồ họa 3D & Web Tương tác',
       filterCategory: '3d',
       description:
-        'A high-performance 3D web experience built with Three.js and custom GLSL vertex/fragment shaders. Features dynamic camera tracks, particle field collision, and 60fps rendering.',
+        'Trải nghiệm web 3D hiệu năng cao được xây dựng với Three.js và custom GLSL vertex/fragment shaders. Tích hợp quỹ đạo camera động, va chạm trường hạt và tốc độ render mượt mà 60fps.',
       tags: ['Three.js', 'WebGL', 'React 19', 'GLSL', 'Tailwind'],
       image: '3d-nexus',
       icon: <Box className="w-4 h-4" />,
@@ -25,11 +25,11 @@ export const Projects: React.FC = () => {
     },
     {
       id: 'devsphere',
-      title: 'DevSphere — Real-Time Collaborative Code Studio',
-      category: 'Full-Stack System',
+      title: 'DevSphere — Không gian Lập trình Cộng tác Thời gian Thực',
+      category: 'Hệ thống Full-Stack',
       filterCategory: 'fullstack',
       description:
-        'Collaborative in-browser code editor supporting real-time operational transformation, live syntax linting, integrated terminal runner, and multi-user room presence.',
+        'Trình soạn thảo mã trực tuyến hỗ trợ biến đổi vận hành thời gian thực (OT), kiểm tra cú pháp trực tiếp, terminal tích hợp và hiển thị trạng thái người dùng trong phòng qua WebSockets.',
       tags: ['TypeScript', 'Node.js', 'WebSockets', 'Monaco Editor', 'Docker'],
       image: 'devsphere',
       icon: <Terminal className="w-4 h-4" />,
@@ -39,11 +39,11 @@ export const Projects: React.FC = () => {
     },
     {
       id: 'aeropulse',
-      title: 'AeroPulse — Autonomous Drone Fleet Telemetry',
-      category: 'IoT & Telemetry UI',
+      title: 'AeroPulse — Hệ thống Giám sát Đo từ xa Đội bay Drone Tự hành',
+      category: 'Giao diện IoT & Dữ liệu',
       filterCategory: 'fullstack',
       description:
-        'Mission control dashboard streaming spatial coordinates, battery thermals, latency metrics, and flight paths for autonomous robotic units with sub-second polling.',
+        'Bảng điều khiển trung tâm truyền phát tọa độ không gian, nhiệt độ pin, độ trễ mạng và lộ trình bay cho các thiết bị robot tự hành với tần suất cập nhật dưới một giây.',
       tags: ['React', 'Recharts', 'Express.js', 'MQTT', 'Tailwind'],
       image: 'aeropulse',
       icon: <Activity className="w-4 h-4" />,
@@ -52,11 +52,11 @@ export const Projects: React.FC = () => {
     },
     {
       id: 'aetheria-ai',
-      title: 'Aetheria — AI Academic Research & Knowledge Studio',
-      category: 'AI & Information Architecture',
+      title: 'Aetheria — Nền tảng Nghiên cứu & Tổng hợp Tri thức Học thuật AI',
+      category: 'Trí tuệ Nhân tạo & Tri thức',
       filterCategory: 'ai',
       description:
-        'Clean synthesis environment for university students to ingest scientific PDF papers, extract semantic knowledge graphs, and cross-reference citations with AI assistance.',
+        'Môi trường tổng hợp cho sinh viên đại học tiếp nhận tài liệu PDF khoa học, trích xuất đồ thị tri thức ngữ nghĩa và đối chiếu trích dẫn học thuật với trợ lý AI.',
       tags: ['React', 'Gemini API', 'Vector Embeddings', 'Node.js', 'Tailwind'],
       image: 'aetheria',
       icon: <Sparkles className="w-4 h-4" />,
@@ -77,23 +77,23 @@ export const Projects: React.FC = () => {
           <div>
             <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2">
               <span className="w-2 h-0.5 bg-cyan-400 inline-block" />
-              <span>03 // FEATURED WORKS</span>
+              <span>04 // DỰ ÁN TIÊU BIỂU</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Selected Projects
+              Dự án Nổi bật
             </h2>
             <p className="mt-2 text-slate-400 text-sm max-w-xl">
-              Hover over any project card to see the custom cursor trigger the <code className="text-cyan-300 font-mono text-xs">VIEW PROJECT</code> indicator.
+              Rê chuột qua bất kỳ thẻ dự án nào để thấy con trỏ chuột kích hoạt nhãn hiển thị <code className="text-cyan-300 font-mono text-xs">XEM DỰ ÁN</code>.
             </p>
           </div>
 
           {/* Filter Pills */}
           <div className="flex items-center gap-1.5 p-1 rounded-xl bg-slate-900 border border-slate-800 self-start text-xs font-mono">
             {[
-              { id: 'all', label: 'All' },
-              { id: '3d', label: '3D & Graphics' },
+              { id: 'all', label: 'Tất cả' },
+              { id: '3d', label: 'Đồ họa 3D' },
               { id: 'fullstack', label: 'Full-Stack' },
-              { id: 'ai', label: 'AI & Data' },
+              { id: 'ai', label: 'AI & Dữ liệu' },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -116,7 +116,7 @@ export const Projects: React.FC = () => {
             <article
               key={project.id}
               data-cursor="project"
-              data-cursor-text="VIEW PROJECT"
+              data-cursor-text="XEM DỰ ÁN"
               className="group relative rounded-2xl backdrop-blur-xl bg-slate-900/60 border border-slate-800/90 hover:border-slate-700 transition-all duration-300 overflow-hidden flex flex-col justify-between shadow-xl"
             >
               {/* Project Card Header / Preview simulation */}
@@ -138,7 +138,7 @@ export const Projects: React.FC = () => {
                         {project.icon}
                         <span>{project.category}</span>
                       </span>
-                      <span className="text-cyan-400 font-semibold">● ACTIVE</span>
+                      <span className="text-cyan-400 font-semibold">● ĐANG HOẠT ĐỘNG</span>
                     </div>
 
                     <div className="space-y-1.5">
@@ -147,8 +147,8 @@ export const Projects: React.FC = () => {
                     </div>
 
                     <div className="mt-3 pt-2 border-t border-slate-800/70 flex items-center justify-between text-[9px] font-mono text-slate-500">
-                      <span>STATUS: DEPLOYED</span>
-                      <span>LATENCY: 24ms</span>
+                      <span>TRẠNG THÁI: ĐÃ TRIỂN KHAI</span>
+                      <span>ĐỘ TRỄ: 24ms</span>
                     </div>
                   </div>
 
@@ -186,7 +186,7 @@ export const Projects: React.FC = () => {
               {/* Bottom Footer Links */}
               <div className="p-6 pt-0 border-t border-slate-800/60 mt-4 flex items-center justify-between">
                 <div className="text-[11px] font-mono text-slate-400">
-                  Interactive Demo
+                  Bản thử nghiệm tương tác
                 </div>
 
                 <div className="flex items-center gap-2">
@@ -195,7 +195,7 @@ export const Projects: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
-                    aria-label="View Source Code"
+                    aria-label="Xem mã nguồn GitHub"
                   >
                     <Github className="w-4 h-4" />
                   </a>
@@ -205,7 +205,7 @@ export const Projects: React.FC = () => {
                     rel="noopener noreferrer"
                     className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-200 bg-slate-800/80 hover:bg-slate-700 hover:text-white border border-slate-700/60 transition-colors"
                   >
-                    <span>Inspect</span>
+                    <span>Xem chi tiết</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>

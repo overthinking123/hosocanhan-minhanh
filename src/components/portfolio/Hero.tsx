@@ -45,7 +45,7 @@ export const Hero: React.FC = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: activeColor }} />
                 <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: activeColor }} />
               </span>
-              <span>{profile.title || 'IT STUDENT • WEB DEVELOPER & 3D ENTHUSIAST'}</span>
+              <span>{profile.title || 'SINH VIÊN CNTT • LẬP TRÌNH WEB & ĐỒ HỌA 3D'}</span>
             </div>
 
             {/* Main Name Heading - DYNAMICALLY COMPUTED & SPLIT */}
@@ -68,7 +68,7 @@ export const Hero: React.FC = () => {
 
             {/* Subtitle / Bio summary */}
             <p className="mt-6 text-lg sm:text-xl text-slate-300 leading-relaxed font-normal max-w-2xl">
-              {profile.bio || 'Passionate Information Technology student engineering modern web experiences, high-performance frontends, and interactive 3D digital interfaces.'}
+              {profile.bio || 'Sinh viên Công nghệ Thông tin đam mê phát triển trải nghiệm web hiện đại, giao diện frontend hiệu năng cao và đồ họa 3D tương tác.'}
             </p>
 
             {/* Action CTAs */}
@@ -82,7 +82,7 @@ export const Hero: React.FC = () => {
                   boxShadow: `0 8px 25px ${activeColor}44`,
                 }}
               >
-                <span>Explore Projects</span>
+                <span>Khám phá dự án</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
 
@@ -91,7 +91,7 @@ export const Hero: React.FC = () => {
                 className="group flex items-center gap-2 px-4 py-3 rounded-xl font-medium text-sm text-slate-200 bg-slate-900/80 hover:bg-slate-800 border border-slate-700/80 backdrop-blur-md shadow-md transition-all duration-200 hover:border-cyan-500/50"
               >
                 <UserCog className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" />
-                <span>Edit Profile</span>
+                <span>Chỉnh sửa hồ sơ</span>
               </button>
 
               <button
@@ -99,7 +99,7 @@ export const Hero: React.FC = () => {
                 className="group flex items-center gap-2 px-4 py-3 rounded-xl font-medium text-sm text-slate-300 bg-slate-900/60 hover:bg-slate-800 border border-slate-800 backdrop-blur-md shadow-md transition-all duration-200 hover:border-slate-700"
               >
                 <Sparkles className="w-4 h-4 text-purple-400" />
-                <span>Cursor</span>
+                <span>Con trỏ chuột</span>
               </button>
 
               <a
@@ -107,7 +107,7 @@ export const Hero: React.FC = () => {
                 onClick={scrollToContact}
                 className="px-4 py-3 rounded-xl font-medium text-sm text-slate-400 hover:text-white transition-colors"
               >
-                Contact →
+                Liên hệ →
               </a>
             </div>
 
@@ -116,38 +116,38 @@ export const Hero: React.FC = () => {
               <div className="flex items-center justify-between pb-3 border-b border-slate-800 text-xs font-mono text-slate-400">
                 <span className="flex items-center gap-2">
                   <Cpu className="w-3.5 h-3.5" style={{ color: activeColor }} />
-                  <span>INTERACTIVE CURSOR DEMO</span>
+                  <span>TRẢI NGHIỆM CON TRỎ CHUỘT TƯƠNG TÁC</span>
                 </span>
                 <span className="text-[11px] text-slate-500 uppercase">
-                  Style: <span className="font-semibold text-slate-300">{settings.style}</span>
+                  Kiểu: <span className="font-semibold text-slate-300">{settings.style}</span>
                 </span>
               </div>
 
               <p className="mt-3 text-xs text-slate-300 leading-normal">
-                Hover over the interactive pills below to test cursor magnetic scaling, glow aura, and project triggers in real-time:
+                Rê chuột qua các nút bên dưới để trải nghiệm hiệu ứng phóng to nam châm, vầng sáng phát quang và phản hồi theo thời gian thực:
               </p>
 
               <div className="mt-3 flex flex-wrap items-center gap-2">
                 <button
                   className="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-800/80 border border-slate-700 hover:border-cyan-500/60 text-slate-300 hover:text-white transition-colors"
                 >
-                  Hover Button (Expands)
+                  Rê chuột vào nút (Phóng to)
                 </button>
 
                 <div
                   data-cursor="project"
-                  data-cursor-text="PREVIEW 3D"
+                  data-cursor-text="XEM 3D"
                   className="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-950/60 border border-slate-800 hover:border-purple-500/60 text-purple-300 transition-colors cursor-pointer"
                 >
-                  3D Sandbox (Triggers Tag)
+                  Không gian 3D (Hiện nhãn)
                 </div>
 
                 <div
                   data-cursor="project"
-                  data-cursor-text="EXPLORE CODE"
+                  data-cursor-text="XEM MÃ NGUỒN"
                   className="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-950/60 border border-slate-800 hover:border-emerald-500/60 text-emerald-300 transition-colors cursor-pointer"
                 >
-                  Code Matrix
+                  Ma trận mã nguồn
                 </div>
               </div>
             </div>
@@ -155,16 +155,16 @@ export const Hero: React.FC = () => {
             {/* Quick Stats Grid */}
             <div className="mt-8 grid grid-cols-3 gap-4 border-t border-slate-800/80 pt-6 max-w-xl">
               <div>
-                <div className="text-xl sm:text-2xl font-bold font-mono text-white">Year {new Date().getFullYear() - parseInt(profile.birthYear || '2007') >= 18 ? '3' : '1'}</div>
-                <div className="text-xs text-slate-400 mt-0.5">{profile.major || 'IT Major'}</div>
+                <div className="text-xl sm:text-2xl font-bold font-mono text-white">Năm {new Date().getFullYear() - parseInt(profile.birthYear || '2007') >= 18 ? '3' : '1'}</div>
+                <div className="text-xs text-slate-400 mt-0.5">{profile.major || 'Sinh viên CNTT'}</div>
               </div>
               <div>
                 <div className="text-xl sm:text-2xl font-bold font-mono text-white">15+</div>
-                <div className="text-xs text-slate-400 mt-0.5">Projects Built</div>
+                <div className="text-xs text-slate-400 mt-0.5">Dự án đã thực hiện</div>
               </div>
               <div>
                 <div className="text-xl sm:text-2xl font-bold font-mono text-white">100%</div>
-                <div className="text-xs text-slate-400 mt-0.5">Modern Web Stack</div>
+                <div className="text-xs text-slate-400 mt-0.5">Công nghệ Web hiện đại</div>
               </div>
             </div>
           </div>

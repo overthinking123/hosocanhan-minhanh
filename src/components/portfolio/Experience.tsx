@@ -8,39 +8,39 @@ export const Experience: React.FC = () => {
 
   const timeline = [
     {
-      year: '2024 - PRESENT',
-      role: 'IT Lab Assistant & Web Developer',
-      organization: 'Faculty of Information Technology',
+      year: '2024 - HIỆN TẠI',
+      role: 'Trợ giảng Lab CNTT & Lập trình viên Web',
+      organization: 'Khoa Công nghệ Thông tin',
       description:
-        'Assisted faculty lab sessions guiding first and second-year students in web development fundamentals, Git workflows, and algorithms. Built internal administrative dashboards.',
-      tags: ['Mentorship', 'React', 'Node.js', 'Git'],
+        'Hỗ trợ các buổi thực hành lab hướng dẫn sinh viên năm nhất và năm hai về nền tảng lập trình web, quy trình làm việc Git và giải thuật. Xây dựng bảng điều khiển quản trị nội bộ.',
+      tags: ['Cố vấn', 'React', 'Node.js', 'Git'],
       type: 'work',
     },
     {
       year: '2024',
-      role: 'Top Finalist — University Hackathon',
-      organization: 'Tech Innovators Challenge',
+      role: 'Đội thi Xuất sắc — Hackathon Trường Đại học',
+      organization: 'Thử thách Đổi mới Sáng tạo Công nghệ',
       description:
-        'Led a team of 4 to design and engineer a smart campus resource optimizer with real-time room occupancy heatmaps using WebSockets and Three.js visualization.',
-      tags: ['Hackathon', 'Three.js', 'IoT', 'Team Lead'],
+        'Dẫn dắt nhóm 4 thành viên thiết kế và phát triển hệ thống tối ưu hóa tài nguyên khuôn viên thông minh với bản đồ nhiệt thời gian thực sử dụng WebSockets và mô hình Three.js.',
+      tags: ['Hackathon', 'Three.js', 'IoT', 'Trưởng nhóm'],
       type: 'award',
     },
     {
-      year: '2023 - PRESENT',
-      role: 'B.S. in Information Technology',
-      organization: 'University of Science (VNU-HCM)',
+      year: '2023 - HIỆN TẠI',
+      role: 'Cử nhân Công nghệ Thông tin',
+      organization: 'Đại học Lạc Hồng',
       description:
-        'Pursuing an IT degree with focus on Software Engineering, Web Computing, and Distributed Systems. Maintaining strong academic standing with emphasis on practical project builds.',
-      tags: ['Academics', 'CS Fundamentals', 'Algorithms'],
+        'Theo học chương trình CNTT chuyên sâu về Kỹ thuật Phần mềm, Điện toán Web và Hệ thống Phân tán. Duy trì kết quả học tập tốt và tích cực tham gia các dự án thực tế.',
+      tags: ['Học thuật', 'Nền tảng KHMT', 'Giải thuật'],
       type: 'education',
     },
     {
       year: '2023',
-      role: 'Open Source UI Contributor',
-      organization: 'GitHub Tech Community',
+      role: 'Đóng góp Mã nguồn Mở UI',
+      organization: 'Cộng đồng Công nghệ GitHub',
       description:
-        'Contributed accessible UI components, TypeScript type enhancements, and interactive demo sandboxes to community open-source libraries.',
-      tags: ['Open Source', 'TypeScript', 'Tailwind'],
+        'Đóng góp các thành phần UI đạt chuẩn trợ năng, cải tiến kiểu dữ liệu TypeScript và xây dựng các demo tương tác cho thư viện mã nguồn mở cộng đồng.',
+      tags: ['Mã nguồn mở', 'TypeScript', 'Tailwind'],
       type: 'community',
     },
   ];
@@ -52,13 +52,13 @@ export const Experience: React.FC = () => {
         <div className="flex flex-col mb-12">
           <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2">
             <span className="w-2 h-0.5 bg-cyan-400 inline-block" />
-            <span>04 // TIMELINE</span>
+            <span>05 // HÀNH TRÌNH PHÁT TRIỂN</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Academic & Coding Journey
+            Hành trình Học tập & Lập trình
           </h2>
           <p className="mt-2 text-slate-400 text-sm max-w-xl">
-            Key academic milestones, competition achievements, and student engineering experiences.
+            Các cột mốc học thuật tiêu biểu, thành tích cuộc thi và trải nghiệm lập trình trong quá trình học tập.
           </p>
         </div>
 

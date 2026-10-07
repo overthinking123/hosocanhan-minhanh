@@ -9,10 +9,10 @@ export const About: React.FC = () => {
   const activeColor = settings.color || '#00F0FF';
 
   const highlights = [
-    `${profile.major || 'Information Technology'} (Student at ${profile.university || 'Đại học Lạc Hồng'})`,
-    'Specialized in Modern React, TypeScript & Full-Stack Node.js Ecosystem',
-    'Creative 3D Graphics & Canvas Programming with Three.js / WebGL',
-    'Responsive Architecture, Core Web Vitals & Web Accessibility (a11y)',
+    `${profile.major || 'Công nghệ Thông tin'} (Sinh viên tại ${profile.university || 'Đại học Lạc Hồng'})`,
+    'Chuyên sâu về hệ sinh thái React, TypeScript & Node.js hiện đại',
+    'Lập trình đồ họa 3D tương tác với Three.js / WebGL & Canvas',
+    'Kiến trúc đáp ứng, tối ưu hóa Core Web Vitals & Trợ năng web (a11y)',
   ];
 
   return (
@@ -23,10 +23,10 @@ export const About: React.FC = () => {
         <div className="flex flex-col mb-12">
           <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2">
             <span className="w-2 h-0.5 bg-cyan-400 inline-block" />
-            <span>01 // ABOUT ME</span>
+            <span>01 // GIỚI THIỆU BẢN THÂN</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Crafting Digital Experiences with Code & Precision
+            Xây dựng Trải nghiệm Số với Tư duy Lập trình & Sự Tỉ mỉ
           </h2>
         </div>
 
@@ -34,16 +34,16 @@ export const About: React.FC = () => {
           {/* Main Description */}
           <div className="lg:col-span-7 space-y-6 text-slate-300 leading-relaxed text-base">
             <p>
-              Hello! I am <strong className="text-white font-semibold">{profile.fullName}</strong>, an IT student and aspiring Web Developer based in Vietnam.
-              My journey in software development began with a curiosity about how the web connects people through rich, interactive interfaces.
+              Xin chào! Tôi là <strong className="text-white font-semibold">{profile.fullName}</strong>, sinh viên ngành Công nghệ Thông tin và lập trình viên web định hướng phát triển tại Việt Nam.
+              Hành trình công nghệ của tôi khởi đầu từ niềm đam mê kết nối con người thông qua những giao diện web sống động, trực quan và giàu tính tương tác.
             </p>
             <p>
-              Throughout my academic studies and personal engineering projects, I have immersed myself in modern frontend engineering,
-              scalable REST backends, and creative computing. I bridge the gap between elegant UI/UX design and rock-solid code architecture.
+              Trong suốt quá trình học tập và xây dựng các dự án kỹ thuật, tôi tập trung chuyên sâu vào kỹ thuật frontend hiện đại,
+              hệ thống backend REST API mở rộng và đồ họa tương tác. Tôi luôn nỗ lực dung hòa giữa thiết kế UI/UX tinh tế và kiến trúc mã nguồn vững chắc.
             </p>
             <p>
-              I take pride in writing clean, type-safe TypeScript code, optimizing rendering pipelines, and building bespoke interactive components
-              like the custom cursor system you are using right now.
+              Tôi đặc biệt yêu thích việc viết mã TypeScript an toàn kiểu dữ liệu, tối ưu hóa hiệu năng render 60fps và sáng tạo các thành phần giao diện đặc trưng
+              như hệ thống con trỏ chuột tùy biến và phòng thí nghiệm CSS mà bạn đang trải nghiệm.
             </p>
 
             {/* Bullet Highlights */}
@@ -63,7 +63,7 @@ export const About: React.FC = () => {
                 className="inline-flex items-center gap-2 text-xs font-mono font-semibold tracking-wider uppercase hover:underline"
                 style={{ color: activeColor }}
               >
-                <span>View Selected Works</span>
+                <span>Xem các dự án tiêu biểu</span>
                 <span>→</span>
               </a>
             </div>
@@ -82,43 +82,43 @@ export const About: React.FC = () => {
                   <GraduationCap className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-white">Academic Background</h3>
+                  <h3 className="text-sm font-semibold text-white">Thông tin Học vấn</h3>
                   <p className="text-xs text-slate-400">{profile.university || 'Đại học Lạc Hồng'}</p>
                 </div>
               </div>
 
               <div className="mt-5 space-y-4 text-xs font-mono">
                 <div>
-                  <div className="text-slate-500 uppercase tracking-wider text-[10px]">Degree & University</div>
-                  <div className="text-slate-200 font-sans font-medium text-sm mt-0.5">{profile.major || 'B.S. in Information Technology'} • {profile.university || 'Đại học Lạc Hồng'}</div>
+                  <div className="text-slate-500 uppercase tracking-wider text-[10px]">Chuyên ngành & Trường</div>
+                  <div className="text-slate-200 font-sans font-medium text-sm mt-0.5">{profile.major || 'Cử nhân Công nghệ Thông tin'} • {profile.university || 'Đại học Lạc Hồng'}</div>
                 </div>
 
                 <div>
-                  <div className="text-slate-500 uppercase tracking-wider text-[10px]">Birth Year</div>
+                  <div className="text-slate-500 uppercase tracking-wider text-[10px]">Năm sinh</div>
                   <div className="text-slate-300 font-sans text-xs mt-1 leading-normal">
                     {profile.birthYear || '2007'}
                   </div>
                 </div>
 
                 <div>
-                  <div className="text-slate-500 uppercase tracking-wider text-[10px]">Core Coursework</div>
+                  <div className="text-slate-500 uppercase tracking-wider text-[10px]">Môn học Chuyên ngành</div>
                   <div className="text-slate-300 font-sans text-xs mt-1 leading-normal">
-                    Data Structures & Algorithms, Object-Oriented Analysis, Web Programming, Relational Databases, Computer Networks, Software Engineering.
+                    Cấu trúc dữ liệu & Giải thuật, Phân tích hướng đối tượng, Lập trình Web, Cơ sở dữ liệu quan hệ, Mạng máy tính, Kỹ thuật phần mềm.
                   </div>
                 </div>
 
                 <div>
-                  <div className="text-slate-500 uppercase tracking-wider text-[10px]">Languages</div>
+                  <div className="text-slate-500 uppercase tracking-wider text-[10px]">Ngôn ngữ</div>
                   <div className="text-slate-300 font-sans text-xs mt-1">
-                    Vietnamese (Native), English (Professional Working Proficiency)
+                    Tiếng Việt (Bản ngữ), Tiếng Anh (Đọc hiểu & Giao tiếp chuyên ngành)
                   </div>
                 </div>
 
                 <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-slate-400">
-                  <span>Status:</span>
+                  <span>Trạng thái:</span>
                   <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                    Open to Internships
+                    Sẵn sàng thực tập
                   </span>
                 </div>
               </div>

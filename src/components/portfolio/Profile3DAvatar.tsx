@@ -192,7 +192,7 @@ export const Profile3DAvatar: React.FC<Profile3DAvatarProps> = ({ className = ''
             <button
               onClick={() => setIsProfileModalOpen(true)}
               className="absolute inset-0 bg-slate-950/60 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2 text-white cursor-pointer focus:outline-none"
-              aria-label="Change Profile Image"
+              aria-label="Đổi ảnh đại diện"
             >
               <div
                 className="w-11 h-11 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110"
@@ -201,7 +201,7 @@ export const Profile3DAvatar: React.FC<Profile3DAvatarProps> = ({ className = ''
                 <Camera className="w-5 h-5" />
               </div>
               <span className="text-xs font-mono font-semibold tracking-wide uppercase px-2.5 py-1 rounded-full bg-slate-900/80 border border-white/20">
-                Change Photo
+                Đổi ảnh đại diện
               </span>
             </button>
           </div>
@@ -221,7 +221,7 @@ export const Profile3DAvatar: React.FC<Profile3DAvatarProps> = ({ className = ''
           }}
         >
           <Sparkles className="w-3 h-3" />
-          <span>3D DEV</span>
+          <span>LẬP TRÌNH 3D</span>
         </div>
 
         {/* Bottom-Left Status Pill */}
@@ -232,7 +232,7 @@ export const Profile3DAvatar: React.FC<Profile3DAvatarProps> = ({ className = ''
           }}
         >
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-slate-300">Active • IT Student</span>
+          <span className="text-slate-300">Đang hoạt động • Sinh viên CNTT</span>
         </div>
       </div>
     </div>

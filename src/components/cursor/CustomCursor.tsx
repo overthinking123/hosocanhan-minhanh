@@ -533,7 +533,7 @@ export const CustomCursor: React.FC = () => {
                 boxShadow: `0 4px 16px ${activeColor}33`,
               }}
             >
-              ✦ {hoverState.text || 'VIEW PROJECT'}
+              ✦ {hoverState.text || 'XEM DỰ ÁN'}
             </div>
           )}
         </div>

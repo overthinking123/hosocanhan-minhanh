@@ -37,11 +37,12 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
   }, []);
 
   const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Journey', href: '#experience' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Giới thiệu', href: '#about' },
+    { name: 'Kỹ năng', href: '#skills' },
+    { name: 'Học CSS', href: '#css-lab' },
+    { name: 'Dự án', href: '#projects' },
+    { name: 'Hành trình', href: '#experience' },
+    { name: 'Liên hệ', href: '#contact' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -80,7 +81,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
                 {shortName}
                 <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: settings.color }} />
               </span>
-              <span className="text-[10px] font-mono text-slate-400 -mt-0.5">IT • DEV</span>
+              <span className="text-[10px] font-mono text-slate-400 -mt-0.5">CNTT • LẬP TRÌNH</span>
             </div>
           </a>
 
@@ -103,16 +104,17 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
             {/* Edit Profile Quick Trigger */}
             <button
               onClick={() => setIsProfileModalOpen(true)}
-              title="Edit Profile Information & Avatar"
+              title="Chỉnh sửa thông tin hồ sơ & Ảnh đại diện"
               className="group flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-slate-800 bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white transition-all shadow-sm hover:border-cyan-500/50"
             >
               <UserCog className="w-3.5 h-3.5 text-cyan-400 group-hover:rotate-12 transition-transform" />
-              <span>Profile</span>
+              <span>Hồ sơ</span>
             </button>
 
             {/* Quick Cursor Studio Pill */}
             <button
               onClick={() => setIsPanelOpen(true)}
+              title="Tùy chỉnh con trỏ chuột"
               className="group flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border border-slate-800 bg-slate-900/70 hover:border-slate-700 text-slate-300 hover:text-white transition-all shadow-sm"
               style={{
                 boxShadow: `0 0 12px ${settings.color}15`,
@@ -129,7 +131,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
             {/* Dark / Light Toggle */}
             <button
               onClick={() => setDarkMode((prev) => !prev)}
-              aria-label="Toggle theme"
+              aria-label="Chuyển đổi giao diện sáng/tối"
               className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/80 border border-slate-800 transition-colors"
             >
               {darkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-blue-400" />}
@@ -141,7 +143,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/80 border border-slate-800 transition-colors"
-              aria-label="GitHub Repository"
+              aria-label="Kho lưu trữ GitHub"
             >
               <Github className="w-4 h-4" />
             </a>
@@ -152,21 +154,21 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
             <button
               onClick={() => setIsProfileModalOpen(true)}
               className="p-2 rounded-lg text-cyan-400 bg-slate-900 border border-slate-800"
-              aria-label="Open Profile Settings"
+              aria-label="Mở cài đặt hồ sơ"
             >
               <UserCog className="w-4 h-4" />
             </button>
             <button
               onClick={() => setIsPanelOpen(true)}
               className="p-2 rounded-lg text-slate-300 bg-slate-900 border border-slate-800"
-              aria-label="Open Cursor Customizer"
+              aria-label="Mở tùy chỉnh con trỏ chuột"
             >
               <MousePointer className="w-4 h-4" style={{ color: settings.color }} />
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg text-slate-300 hover:text-white bg-slate-900 border border-slate-800"
-              aria-label="Toggle menu"
+              aria-label="Mở menu điều hướng"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -195,14 +197,14 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
                 className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono text-cyan-400 bg-cyan-950/40 border border-cyan-800/50 rounded-lg"
               >
                 <UserCog className="w-3.5 h-3.5" />
-                <span>Profile Settings</span>
+                <span>Cài đặt hồ sơ</span>
               </button>
               <button
                 onClick={() => setDarkMode((prev) => !prev)}
                 className="flex items-center gap-2 px-3 py-1.5 text-xs text-slate-300 rounded-lg bg-slate-800"
               >
                 {darkMode ? <Sun className="w-3.5 h-3.5 text-amber-400" /> : <Moon className="w-3.5 h-3.5 text-blue-400" />}
-                <span>{darkMode ? 'Light' : 'Dark'}</span>
+                <span>{darkMode ? 'Giao diện sáng' : 'Giao diện tối'}</span>
               </button>
             </div>
           </div>

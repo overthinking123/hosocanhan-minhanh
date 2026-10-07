@@ -9,6 +9,7 @@ import { Navbar } from './components/portfolio/Navbar';
 import { Hero } from './components/portfolio/Hero';
 import { About } from './components/portfolio/About';
 import { Skills } from './components/portfolio/Skills';
+import { CssLab } from './components/portfolio/CssLab';
 import { Projects } from './components/portfolio/Projects';
 import { Experience } from './components/portfolio/Experience';
 import { Contact } from './components/portfolio/Contact';
@@ -35,6 +36,7 @@ export default function App() {
             <Hero />
             <About />
             <Skills />
+            <CssLab />
             <Projects />
             <Experience />
             <Contact />

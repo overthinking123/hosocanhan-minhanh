@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
               {profile.fullName}
             </span>
             <span className="text-slate-600">•</span>
-            <span>{profile.title || 'IT STUDENT & WEB DEVELOPER'}</span>
+            <span>{profile.title || 'SINH VIÊN CNTT & LẬP TRÌNH WEB'}</span>
           </div>
 
           <div className="flex items-center gap-4">
@@ -31,15 +31,15 @@ export const Footer: React.FC = () => {
               className="flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors"
             >
               <Sparkles className="w-3.5 h-3.5" style={{ color: activeColor }} />
-              <span>Cursor: {settings.style}</span>
+              <span>Con trỏ: {settings.style}</span>
             </button>
 
             <button
               onClick={scrollToTop}
               className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white transition-colors"
-              aria-label="Back to top"
+              aria-label="Cuộn lên đầu trang"
             >
-              <span>Back to Top</span>
+              <span>Lên đầu trang</span>
               <ArrowUp className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -47,10 +47,10 @@ export const Footer: React.FC = () => {
 
         <div className="mt-8 pt-6 border-t border-slate-900/80 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-600 gap-2">
           <div>
-            © {new Date().getFullYear()} {profile.fullName}. All rights reserved.
+            © {new Date().getFullYear()} {profile.fullName}. Bảo lưu mọi quyền.
           </div>
           <div>
-            High Performance • RequestAnimationFrame Lerp • Zero Layout Shift
+            Hiệu năng cao • Hoạt ảnh mượt mà • Tương thích mọi thiết bị
           </div>
         </div>
       </div>

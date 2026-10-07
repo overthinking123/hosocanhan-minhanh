@@ -16,12 +16,12 @@ import {
 } from 'lucide-react';
 
 const STYLES_CONFIG: { id: CursorStyleId; name: string; number: string; desc: string }[] = [
-  { id: 'default', name: 'Default', number: '01', desc: 'Minimalist circle & dot' },
-  { id: 'neon-ring', name: 'Neon Ring', number: '02', desc: 'Vibrant halo ring' },
-  { id: 'dot', name: 'Glow Dot', number: '03', desc: 'Luminous tech point' },
-  { id: 'crosshair', name: 'Crosshair', number: '04', desc: 'Targeting HUD reticle' },
-  { id: 'orbit', name: 'Orbit', number: '05', desc: 'Planetary satellite' },
-  { id: 'tech-3d', name: 'Tech 3D', number: '06', desc: 'Rotating 3D segmented' },
+  { id: 'default', name: 'Mặc định', number: '01', desc: 'Vòng tròn & Chấm tối giản' },
+  { id: 'neon-ring', name: 'Vòng Neon', number: '02', desc: 'Vòng hào quang rực rỡ' },
+  { id: 'dot', name: 'Chấm sáng', number: '03', desc: 'Điểm sáng công nghệ' },
+  { id: 'crosshair', name: 'Tâm ngắm', number: '04', desc: 'Tâm ngắm HUD công nghệ' },
+  { id: 'orbit', name: 'Quỹ đạo', number: '05', desc: 'Vệ tinh xoay quanh' },
+  { id: 'tech-3d', name: 'Công nghệ 3D', number: '06', desc: 'Khối phân đoạn xoay 3D' },
 ];
 
 export const CursorCustomizerPanel: React.FC = () => {
@@ -54,15 +54,15 @@ export const CursorCustomizerPanel: React.FC = () => {
             className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-medium backdrop-blur-md bg-slate-900/80 text-slate-300 border border-slate-700/60 shadow-lg cursor-pointer hover:border-cyan-500/50 transition-all hover:text-white"
           >
             <Sparkles className="w-3 h-3 text-cyan-400" />
-            <span>Customize Cursor</span>
+            <span>Tùy chỉnh con trỏ</span>
           </div>
         )}
 
         <button
           id="cursor-customizer-toggle-btn"
           onClick={() => setIsPanelOpen((prev) => !prev)}
-          aria-label="Toggle Cursor Customizer"
-          className="group relative flex items-center justify-center w-12 h-12 rounded-full backdrop-blur-xl bg-slate-900/90 border border-white/15 text-white shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none"
+          aria-label="Mở bảng tùy chỉnh con trỏ chuột"
+          className="group relative flex items-center justify-center w-12 h-12 rounded-full backdrop-blur-xl bg-slate-900/90 border border-white/15 text-white shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none cursor-pointer"
           style={{
             boxShadow: `0 0 20px ${currentColor}33`,
             borderColor: isPanelOpen ? currentColor : 'rgba(255, 255, 255, 0.18)',
@@ -104,28 +104,28 @@ export const CursorCustomizerPanel: React.FC = () => {
               </span>
               <div>
                 <h3 className="text-sm font-bold tracking-wider font-mono uppercase text-white flex items-center gap-1.5">
-                  CUSTOM CURSOR
+                  TÙY CHỈNH CON TRỎ
                   <span className="text-[10px] px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
                     V2.0
                   </span>
                 </h3>
-                <p className="text-[11px] text-slate-400">Futuristic Pointer System</p>
+                <p className="text-[11px] text-slate-400">Hệ thống con trỏ chuột tương tác</p>
               </div>
             </div>
 
             <div className="flex items-center gap-1">
               <button
                 onClick={resetSettings}
-                title="Reset to Default"
+                title="Khôi phục mặc định"
                 className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
-                aria-label="Reset Cursor Settings"
+                aria-label="Khôi phục cài đặt mặc định"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
               </button>
               <button
                 onClick={() => setIsPanelOpen(false)}
                 className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
-                aria-label="Close Cursor Panel"
+                aria-label="Đóng bảng tùy chỉnh"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -137,7 +137,7 @@ export const CursorCustomizerPanel: React.FC = () => {
             <div className="mt-3 p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs flex items-start gap-2">
               <span className="text-base">📱</span>
               <span>
-                Touch screen detected. Custom cursor activates automatically on desktop mouse devices to preserve smooth touch interactions.
+                Đang phát hiện thiết bị màn hình cảm ứng. Con trỏ tùy chỉnh kích hoạt tự động trên chuột máy tính để đảm bảo độ mượt mà.
               </span>
             </div>
           )}
@@ -185,7 +185,7 @@ export const CursorCustomizerPanel: React.FC = () => {
               <div>
                 <div className="text-xs font-mono font-semibold text-white uppercase flex items-center gap-1.5">
                   <span>{STYLES_CONFIG.find((s) => s.id === settings.style)?.name}</span>
-                  <span className="text-[10px] text-slate-400 font-normal">({settings.size})</span>
+                  <span className="text-[10px] text-slate-400 font-normal">({settings.size === 'small' ? 'Nhỏ' : settings.size === 'medium' ? 'Vừa' : 'Lớn'})</span>
                 </div>
                 <div className="text-[11px] text-slate-400 flex items-center gap-2 mt-0.5">
                   <span className="inline-block w-2 h-2 rounded-full" style={{ backgroundColor: currentColor }} />
@@ -202,7 +202,7 @@ export const CursorCustomizerPanel: React.FC = () => {
                     : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
                 }`}
               >
-                {settings.useDefaultCursor ? 'Standard' : 'Active'}
+                {settings.useDefaultCursor ? 'Chuẩn' : 'Đang bật'}
               </span>
             </div>
           </div>
@@ -211,25 +211,25 @@ export const CursorCustomizerPanel: React.FC = () => {
           <div className="grid grid-cols-2 gap-1 mt-4 p-1 rounded-xl bg-slate-900 border border-slate-800 text-xs">
             <button
               onClick={() => setActiveTab('style')}
-              className={`flex items-center justify-center gap-1.5 py-1.5 rounded-lg font-medium transition-all ${
+              className={`flex items-center justify-center gap-1.5 py-1.5 rounded-lg font-medium transition-all cursor-pointer ${
                 activeTab === 'style'
                   ? 'bg-slate-800 text-white shadow-sm'
                   : 'text-slate-400 hover:text-slate-200'
               }`}
             >
               <Palette className="w-3.5 h-3.5" />
-              Style & Color
+              Kiểu dáng & Màu sắc
             </button>
             <button
               onClick={() => setActiveTab('effects')}
-              className={`flex items-center justify-center gap-1.5 py-1.5 rounded-lg font-medium transition-all ${
+              className={`flex items-center justify-center gap-1.5 py-1.5 rounded-lg font-medium transition-all cursor-pointer ${
                 activeTab === 'effects'
                   ? 'bg-slate-800 text-white shadow-sm'
                   : 'text-slate-400 hover:text-slate-200'
               }`}
             >
               <Zap className="w-3.5 h-3.5" />
-              Effects & Size
+              Hiệu ứng & Kích thước
             </button>
           </div>
 
@@ -239,8 +239,8 @@ export const CursorCustomizerPanel: React.FC = () => {
               {/* 1. CURSOR STYLES GRID */}
               <div>
                 <label className="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2 flex items-center justify-between">
-                  <span>Cursor Style</span>
-                  <span className="text-[10px] text-slate-500">6 Styles</span>
+                  <span>Kiểu dáng con trỏ</span>
+                  <span className="text-[10px] text-slate-500">6 Kiểu dáng</span>
                 </label>
                 <div className="grid grid-cols-3 gap-2">
                   {STYLES_CONFIG.map((s) => {
@@ -250,7 +250,7 @@ export const CursorCustomizerPanel: React.FC = () => {
                         key={s.id}
                         id={`cursor-style-${s.id}`}
                         onClick={() => updateSettings({ style: s.id, useDefaultCursor: false })}
-                        className={`group relative p-2 rounded-xl text-left border transition-all duration-200 flex flex-col items-center justify-center text-center ${
+                        className={`group relative p-2 rounded-xl text-left border transition-all duration-200 flex flex-col items-center justify-center text-center cursor-pointer ${
                           isSelected
                             ? 'bg-slate-800/90 border-opacity-100 shadow-md'
                             : 'bg-slate-900/50 border-slate-800 hover:bg-slate-900 hover:border-slate-700'
@@ -300,8 +300,8 @@ export const CursorCustomizerPanel: React.FC = () => {
               {/* 2. COLOR PALETTE */}
               <div>
                 <label className="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2 flex items-center justify-between">
-                  <span>Color Theme</span>
-                  <span className="text-[10px] text-slate-500">Realtime Glow</span>
+                  <span>Màu sắc chủ đạo</span>
+                  <span className="text-[10px] text-slate-500">Phát quang thời gian thực</span>
                 </label>
 
                 {/* Swatches */}
@@ -313,7 +313,7 @@ export const CursorCustomizerPanel: React.FC = () => {
                         key={preset.name}
                         onClick={() => updateSettings({ color: preset.hex, customColor: preset.hex })}
                         title={preset.name}
-                        className="group relative flex items-center justify-center w-8 h-8 rounded-full transition-transform hover:scale-110 focus:outline-none"
+                        className="group relative flex items-center justify-center w-8 h-8 rounded-full transition-transform hover:scale-110 focus:outline-none cursor-pointer"
                       >
                         <span
                           className="w-6 h-6 rounded-full transition-shadow duration-200 border border-white/20"
@@ -335,7 +335,7 @@ export const CursorCustomizerPanel: React.FC = () => {
                   <div className="relative ml-1">
                     <label
                       htmlFor="custom-color-picker"
-                      title="Custom Color"
+                      title="Tự chọn màu tùy thích"
                       className="cursor-pointer flex items-center justify-center w-8 h-8 rounded-full border border-dashed border-slate-600 hover:border-white transition-colors bg-slate-800 text-slate-400 hover:text-white"
                     >
                       <Palette className="w-3.5 h-3.5" />
@@ -359,21 +359,23 @@ export const CursorCustomizerPanel: React.FC = () => {
               {/* 1. CURSOR SIZE SLIDER / BUTTONS */}
               <div>
                 <label className="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2 flex items-center justify-between">
-                  <span>Cursor Size</span>
-                  <span className="text-[10px] font-mono text-cyan-400 capitalize">{settings.size}</span>
+                  <span>Kích thước con trỏ</span>
+                  <span className="text-[10px] font-mono text-cyan-400 capitalize">
+                    {settings.size === 'small' ? 'Nhỏ' : settings.size === 'medium' ? 'Vừa' : 'Lớn'}
+                  </span>
                 </label>
                 <div className="grid grid-cols-3 gap-2">
                   {(['small', 'medium', 'large'] as CursorSize[]).map((sz) => (
                     <button
                       key={sz}
                       onClick={() => updateSettings({ size: sz })}
-                      className={`py-1.5 rounded-xl text-xs font-mono font-medium border transition-all ${
+                      className={`py-1.5 rounded-xl text-xs font-mono font-medium border transition-all cursor-pointer ${
                         settings.size === sz
                           ? 'bg-slate-800 border-cyan-500/60 text-white shadow-sm'
                           : 'bg-slate-900/50 border-slate-800 text-slate-400 hover:text-white'
                       }`}
                     >
-                      {sz.toUpperCase()}
+                      {sz === 'small' ? 'NHỎ' : sz === 'medium' ? 'VỪA' : 'LỚN'}
                     </button>
                   ))}
                 </div>
@@ -382,8 +384,8 @@ export const CursorCustomizerPanel: React.FC = () => {
               {/* 2. TOGGLEABLE EFFECTS */}
               <div>
                 <label className="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2 flex items-center justify-between">
-                  <span>Visual Effects</span>
-                  <span className="text-[10px] text-slate-500">Smooth & Lightweight</span>
+                  <span>Hiệu ứng thị giác</span>
+                  <span className="text-[10px] text-slate-500">Mượt mà & Tối ưu hiệu năng</span>
                 </label>
 
                 <div className="space-y-1.5">
@@ -392,19 +394,19 @@ export const CursorCustomizerPanel: React.FC = () => {
                     <div className="flex items-center gap-2">
                       <span className="text-amber-400">✦</span>
                       <div>
-                        <div className="text-xs font-medium text-slate-200">Glow Halo</div>
-                        <div className="text-[10px] text-slate-500">Luminous aura filter</div>
+                        <div className="text-xs font-medium text-slate-200">Phát quang (Glow)</div>
+                        <div className="text-[10px] text-slate-500">Vầng sáng hào quang</div>
                       </div>
                     </div>
                     <button
                       onClick={() => toggleEffect('glow')}
-                      className={`px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold transition-colors ${
+                      className={`px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold transition-colors cursor-pointer ${
                         settings.glow
                           ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
                           : 'bg-slate-800 text-slate-500 border border-slate-700'
                       }`}
                     >
-                      {settings.glow ? 'ON' : 'OFF'}
+                      {settings.glow ? 'BẬT' : 'TẮT'}
                     </button>
                   </div>
 
@@ -413,19 +415,19 @@ export const CursorCustomizerPanel: React.FC = () => {
                     <div className="flex items-center gap-2">
                       <span className="text-cyan-400">●</span>
                       <div>
-                        <div className="text-xs font-medium text-slate-200">Trailing Effect</div>
-                        <div className="text-[10px] text-slate-500">Smooth faded path</div>
+                        <div className="text-xs font-medium text-slate-200">Vệt đuôi chuột (Trailing)</div>
+                        <div className="text-[10px] text-slate-500">Vệt mờ chuyển động mượt mà</div>
                       </div>
                     </div>
                     <button
                       onClick={() => toggleEffect('trail')}
-                      className={`px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold transition-colors ${
+                      className={`px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold transition-colors cursor-pointer ${
                         settings.trail
                           ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
                           : 'bg-slate-800 text-slate-500 border border-slate-700'
                       }`}
                     >
-                      {settings.trail ? 'ON' : 'OFF'}
+                      {settings.trail ? 'BẬT' : 'TẮT'}
                     </button>
                   </div>
 
@@ -434,19 +436,19 @@ export const CursorCustomizerPanel: React.FC = () => {
                     <div className="flex items-center gap-2">
                       <span className="text-purple-400">◎</span>
                       <div>
-                        <div className="text-xs font-medium text-slate-200">Click Ripple</div>
-                        <div className="text-[10px] text-slate-500">Elastic wave on click</div>
+                        <div className="text-xs font-medium text-slate-200">Gợn sóng khi bấm (Ripple)</div>
+                        <div className="text-[10px] text-slate-500">Sóng xung kích đàn hồi khi click</div>
                       </div>
                     </div>
                     <button
                       onClick={() => toggleEffect('clickRipple')}
-                      className={`px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold transition-colors ${
+                      className={`px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold transition-colors cursor-pointer ${
                         settings.clickRipple
                           ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
                           : 'bg-slate-800 text-slate-500 border border-slate-700'
                       }`}
                     >
-                      {settings.clickRipple ? 'ON' : 'OFF'}
+                      {settings.clickRipple ? 'BẬT' : 'TẮT'}
                     </button>
                   </div>
 
@@ -455,19 +457,19 @@ export const CursorCustomizerPanel: React.FC = () => {
                     <div className="flex items-center gap-2">
                       <span className="text-pink-400">❖</span>
                       <div>
-                        <div className="text-xs font-medium text-slate-200">Hover Expansion</div>
-                        <div className="text-[10px] text-slate-500">Expands on buttons & cards</div>
+                        <div className="text-xs font-medium text-slate-200">Phóng to khi rê chuột (Hover)</div>
+                        <div className="text-[10px] text-slate-500">Tự mở rộng khi trỏ vào nút & thẻ</div>
                       </div>
                     </div>
                     <button
                       onClick={() => toggleEffect('hoverAnimation')}
-                      className={`px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold transition-colors ${
+                      className={`px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold transition-colors cursor-pointer ${
                         settings.hoverAnimation
                           ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
                           : 'bg-slate-800 text-slate-500 border border-slate-700'
                       }`}
                     >
-                      {settings.hoverAnimation ? 'ON' : 'OFF'}
+                      {settings.hoverAnimation ? 'BẬT' : 'TẮT'}
                     </button>
                   </div>
 
@@ -476,19 +478,19 @@ export const CursorCustomizerPanel: React.FC = () => {
                     <div className="flex items-center gap-2">
                       <span className="text-emerald-400">✧</span>
                       <div>
-                        <div className="text-xs font-medium text-slate-200">Particle Dust</div>
-                        <div className="text-[10px] text-slate-500">Subtle floating stardust</div>
+                        <div className="text-xs font-medium text-slate-200">Tia hạt bụi sao (Particles)</div>
+                        <div className="text-[10px] text-slate-500">Bụi hạt vi mô phát sáng lơ lửng</div>
                       </div>
                     </div>
                     <button
                       onClick={() => toggleEffect('particleTrail')}
-                      className={`px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold transition-colors ${
+                      className={`px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold transition-colors cursor-pointer ${
                         settings.particleTrail
                           ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
                           : 'bg-slate-800 text-slate-500 border border-slate-700'
                       }`}
                     >
-                      {settings.particleTrail ? 'ON' : 'OFF'}
+                      {settings.particleTrail ? 'BẬT' : 'TẮT'}
                     </button>
                   </div>
                 </div>
@@ -500,18 +502,18 @@ export const CursorCustomizerPanel: React.FC = () => {
           <div className="mt-4 pt-3.5 border-t border-slate-800 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <MousePointer2 className="w-3.5 h-3.5 text-slate-400" />
-              <span className="text-xs text-slate-300">Use default browser cursor</span>
+              <span className="text-xs text-slate-300">Dùng con trỏ mặc định trình duyệt</span>
             </div>
 
             <button
               onClick={() => updateSettings({ useDefaultCursor: !settings.useDefaultCursor })}
-              className={`px-3 py-1 rounded-lg text-xs font-mono font-medium border transition-colors ${
+              className={`px-3 py-1 rounded-lg text-xs font-mono font-medium border transition-colors cursor-pointer ${
                 settings.useDefaultCursor
                   ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
                   : 'bg-slate-800 text-slate-400 border-slate-700 hover:text-white'
               }`}
             >
-              {settings.useDefaultCursor ? 'Enabled' : 'Disabled'}
+              {settings.useDefaultCursor ? 'Đang bật' : 'Đang tắt'}
             </button>
           </div>
         </aside>

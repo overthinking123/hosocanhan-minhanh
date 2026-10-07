@@ -154,13 +154,13 @@ export const ProfileSettingsModal: React.FC = () => {
             </div>
             <div>
               <h2 className="text-lg font-bold font-sans tracking-tight text-white flex items-center gap-2">
-                PROFILE SETTINGS
+                CÀI ĐẶT HỒ SƠ
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
-                  REALTIME SYNC
+                  ĐỒNG BỘ THỜI GIAN THỰC
                 </span>
               </h2>
               <p className="text-xs text-slate-400">
-                Update full name, avatar, university, and academic details across the entire portfolio.
+                Cập nhật họ tên, ảnh đại diện, trường đại học và thông tin học vấn trên toàn bộ trang web.
               </p>
             </div>
           </div>
@@ -168,16 +168,16 @@ export const ProfileSettingsModal: React.FC = () => {
           <div className="flex items-center gap-2">
             <button
               onClick={handleResetAll}
-              title="Reset profile to defaults"
+              title="Khôi phục hồ sơ mặc định"
               className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800 transition-colors"
-              aria-label="Reset Profile to Defaults"
+              aria-label="Khôi phục hồ sơ mặc định"
             >
               <RotateCcw className="w-4 h-4" />
             </button>
             <button
               onClick={() => setIsProfileModalOpen(false)}
               className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800 transition-colors"
-              aria-label="Close Profile Settings"
+              aria-label="Đóng cài đặt hồ sơ"
             >
               <X className="w-4 h-4" />
             </button>
@@ -188,7 +188,7 @@ export const ProfileSettingsModal: React.FC = () => {
         {saveSuccess && (
           <div className="mt-4 p-3 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs flex items-center gap-2 animate-in fade-in">
             <Check className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-            <span>Profile successfully updated and saved across all portfolio sections!</span>
+            <span>Hồ sơ đã được cập nhật và đồng bộ thành công trên toàn bộ trang web!</span>
           </div>
         )}
 
@@ -200,10 +200,10 @@ export const ProfileSettingsModal: React.FC = () => {
             <div className="flex items-center justify-between">
               <label className="text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold flex items-center gap-2">
                 <Sparkles className="w-3.5 h-3.5" style={{ color: activeColor }} />
-                <span>PROFILE IMAGE</span>
+                <span>ẢNH ĐẠI DIỆN (PROFILE IMAGE)</span>
               </label>
               <span className="text-[11px] font-mono text-slate-500">
-                JPG, JPEG, PNG, WEBP (Auto-fitted)
+                JPG, JPEG, PNG, WEBP (Tự động canh chuẩn)
               </span>
             </div>
 
@@ -220,9 +220,9 @@ export const ProfileSettingsModal: React.FC = () => {
                 <div className="flex items-center justify-between text-xs font-mono text-cyan-300">
                   <span className="flex items-center gap-1.5 font-semibold">
                     <Eye className="w-4 h-4" />
-                    Preview Selected Image
+                    Xem trước ảnh đã chọn (Preview)
                   </span>
-                  <span className="text-[10px] text-slate-400">Review before saving</span>
+                  <span className="text-[10px] text-slate-400">Kiểm tra trước khi áp dụng</span>
                 </div>
 
                 <div className="flex flex-col sm:flex-row items-center gap-4">
@@ -230,38 +230,38 @@ export const ProfileSettingsModal: React.FC = () => {
                   <div className="w-32 h-32 rounded-2xl overflow-hidden border-2 border-cyan-400 bg-slate-900 shadow-xl flex-shrink-0">
                     <img
                       src={pendingImage}
-                      alt="Upload Preview"
+                      alt="Xem trước ảnh tải lên"
                       className="w-full h-full object-cover object-center"
                     />
                   </div>
 
                   <div className="space-y-2 text-center sm:text-left">
                     <p className="text-xs text-slate-300 leading-relaxed">
-                      This photo will replace your current profile avatar and be displayed inside the 3D developer frame in Hero.
+                      Ảnh này sẽ thay thế ảnh đại diện hiện tại và hiển thị trong khung công nghệ 3D tại trang chủ.
                     </p>
                     <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 pt-1">
                       <button
                         type="button"
                         onClick={handleConfirmImage}
-                        className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-mono font-semibold bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-lg transition-transform active:scale-95"
+                        className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-mono font-semibold bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-lg transition-transform active:scale-95 cursor-pointer"
                       >
                         <Check className="w-3.5 h-3.5" />
-                        <span>Use This Image</span>
+                        <span>Sử dụng ảnh này (Use This Image)</span>
                       </button>
 
                       <button
                         type="button"
                         onClick={handleCancelImage}
-                        className="px-4 py-2 rounded-xl text-xs font-mono font-medium bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-colors"
+                        className="px-4 py-2 rounded-xl text-xs font-mono font-medium bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-colors cursor-pointer"
                       >
-                        Cancel
+                        Hủy bỏ (Cancel)
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
             ) : (
-              /* Standard Image Controls (Requirement 2 ASCII Layout) */
+              /* Standard Image Controls */
               <div className="flex flex-col sm:flex-row items-center gap-5">
                 {/* Current Image [ Ảnh hiện tại ] */}
                 <div className="relative group w-28 h-28 rounded-2xl overflow-hidden border-2 border-slate-700 bg-slate-900 shadow-lg flex-shrink-0">
@@ -271,7 +271,7 @@ export const ProfileSettingsModal: React.FC = () => {
                     className="w-full h-full object-cover object-center"
                   />
                   <div className="absolute bottom-0 inset-x-0 bg-slate-950/70 text-[10px] font-mono text-center py-0.5 text-slate-300">
-                    Current
+                    Ảnh hiện tại
                   </div>
                 </div>
 
@@ -291,26 +291,26 @@ export const ProfileSettingsModal: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => fileInputRef.current?.click()}
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono font-semibold text-slate-950 shadow-md transition-all hover:opacity-90 active:scale-95"
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono font-semibold text-slate-950 shadow-md transition-all hover:opacity-90 active:scale-95 cursor-pointer"
                       style={{ backgroundColor: activeColor }}
                     >
                       <Upload className="w-4 h-4" />
-                      <span>Upload Image</span>
+                      <span>Tải ảnh lên (Upload Image)</span>
                     </button>
 
                     {/* [ Remove Image ] */}
                     <button
                       type="button"
                       onClick={handleRemoveImage}
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono font-medium text-slate-300 bg-slate-900 hover:bg-rose-950/30 hover:text-rose-300 border border-slate-700 hover:border-rose-500/50 transition-colors"
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono font-medium text-slate-300 bg-slate-900 hover:bg-rose-950/30 hover:text-rose-300 border border-slate-700 hover:border-rose-500/50 transition-colors cursor-pointer"
                     >
                       <Trash2 className="w-4 h-4" />
-                      <span>Remove Image</span>
+                      <span>Xóa ảnh (Remove Image)</span>
                     </button>
                   </div>
 
                   <p className="text-[11px] text-slate-400">
-                    Supports portrait, square, or landscape. Automatically fitted via <code className="text-cyan-400">object-fit: cover</code> without facial distortion.
+                    Hỗ trợ ảnh chân dung (portrait), ảnh vuông hoặc ảnh ngang. Tự động khớp với <code className="text-cyan-400">object-fit: cover</code> không làm méo khuôn mặt.
                   </p>
                 </div>
               </div>
@@ -326,22 +326,22 @@ export const ProfileSettingsModal: React.FC = () => {
               <label className="block text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold mb-1.5 flex items-center justify-between">
                 <span className="flex items-center gap-1.5">
                   <User className="w-3.5 h-3.5" style={{ color: activeColor }} />
-                  FULL NAME (HỌ VÀ TÊN)
+                  HỌ VÀ TÊN ĐẦY ĐỦ (FULL NAME)
                 </span>
-                <span className="text-[10px] text-slate-500 font-normal">Supports any full name</span>
+                <span className="text-[10px] text-slate-500 font-normal">Hỗ trợ mọi họ tên tiếng Việt</span>
               </label>
               <input
                 type="text"
                 required
                 value={formData.fullName}
                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                placeholder="e.g. NGUYỄN ĐỖ MINH ANH or NGUYỄN VĂN A"
+                placeholder="Ví dụ: NGUYỄN ĐỖ MINH ANH hoặc NGUYỄN VĂN A"
                 className="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-slate-800 focus:border-cyan-500 focus:outline-none text-white font-medium text-sm transition-colors"
               />
 
               {/* Real-time Dynamic Line-Split Preview */}
               <div className="mt-2 p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80 flex items-center justify-between text-xs">
-                <span className="text-[11px] font-mono text-slate-400">Hero Layout Preview:</span>
+                <span className="text-[11px] font-mono text-slate-400">Xem trước phân dòng tại Trang chủ:</span>
                 <div className="text-right font-mono font-bold">
                   {nameSplitPreview.line1 && (
                     <span className="text-white block text-[11px]">{nameSplitPreview.line1}</span>
@@ -359,7 +359,7 @@ export const ProfileSettingsModal: React.FC = () => {
               <div>
                 <label className="block text-xs font-mono uppercase text-slate-400 mb-1.5 flex items-center gap-1.5">
                   <Calendar className="w-3.5 h-3.5" />
-                  BIRTH YEAR
+                  NĂM SINH
                 </label>
                 <input
                   type="text"
@@ -375,7 +375,7 @@ export const ProfileSettingsModal: React.FC = () => {
               <div>
                 <label className="block text-xs font-mono uppercase text-slate-400 mb-1.5 flex items-center gap-1.5">
                   <GraduationCap className="w-3.5 h-3.5" />
-                  UNIVERSITY
+                  TRƯỜNG ĐẠI HỌC
                 </label>
                 <input
                   type="text"
@@ -391,7 +391,7 @@ export const ProfileSettingsModal: React.FC = () => {
               <div>
                 <label className="block text-xs font-mono uppercase text-slate-400 mb-1.5 flex items-center gap-1.5">
                   <BookOpen className="w-3.5 h-3.5" />
-                  MAJOR
+                  CHUYÊN NGÀNH
                 </label>
                 <input
                   type="text"
@@ -410,18 +410,18 @@ export const ProfileSettingsModal: React.FC = () => {
             <button
               type="button"
               onClick={() => setIsProfileModalOpen(false)}
-              className="px-5 py-2.5 rounded-xl text-xs font-mono font-medium text-slate-400 hover:text-white transition-colors"
+              className="px-5 py-2.5 rounded-xl text-xs font-mono font-medium text-slate-400 hover:text-white transition-colors cursor-pointer"
             >
-              Cancel
+              Hủy bỏ (Cancel)
             </button>
 
             <button
               type="submit"
-              className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-mono font-semibold text-slate-950 shadow-xl transition-all hover:opacity-90 active:scale-95"
+              className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-mono font-semibold text-slate-950 shadow-xl transition-all hover:opacity-90 active:scale-95 cursor-pointer"
               style={{ backgroundColor: activeColor }}
             >
               <Check className="w-4 h-4" />
-              <span>Save Changes</span>
+              <span>Lưu thay đổi (Save Changes)</span>
             </button>
           </div>
         </form>
